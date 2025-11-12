@@ -7,6 +7,7 @@ import { BiHeading } from "react-icons/bi";
 import Header from "./components/hheader/Header";
 import Footer from "./components/footer/Footer";
 
+export const revalidate = 5;
 const hossRound = localFont({
   src: [
     {
