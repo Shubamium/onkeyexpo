@@ -2,12 +2,35 @@
   position: relative;
   z-index: 100;
 
+  .infitext {
+    position: absolute;
+    left: 0%;
+    display: flex;
+    opacity: 0.05;
+    z-index: -10;
+
+    p {
+      margin: 0.2em;
+      font-size: 6rem;
+      font-family: var(--fontH);
+      white-space: nowrap;
+      animation: infinitext 20s linear infinite reverse;
+      @keyframes infinitext {
+        from {
+          transform: translateX(0%);
+        }
+        to {
+          transform: translateX(-100%);
+        }
+      }
+    }
+  }
   nav {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 1em;
-
+    position: relative;
     .main-logo {
       height: 240px;
       animation: breathe 3s infinite alternate;

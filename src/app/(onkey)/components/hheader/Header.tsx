@@ -10,6 +10,15 @@ export default function Header({}: Props) {
       <img src="/d/header-edge.svg" alt="" className="edge l" />
       <img src="/d/header-edge.svg" alt="" className="edge r" />
       <nav>
+        <div className="infitext">
+          <p>OnKey Expo</p>
+          <p>OnKey Expo</p>
+          <p>OnKey Expo</p>
+          <p>OnKey Expo</p>
+          <p>OnKey Expo</p>
+          <p>OnKey Expo</p>
+          <p>OnKey Expo</p>
+        </div>
         <div className="ctbtn">
           <a href="https://x.com/OnKeyExpo" className="btn btn-nav">
             <FaXTwitter />
