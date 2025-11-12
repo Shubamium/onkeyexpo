@@ -1,0 +1,69 @@
+#footer {
+  min-height: 600px;
+  background: url("/b/pt-dot25.png"),
+    linear-gradient(to bottom, #d77189, #6f1f3b);
+  background-size: 300px, auto;
+  border-top: 10px solid #450920;
+  margin-top: 300px;
+  position: relative;
+  z-index: 1;
+  .side {
+    position: absolute;
+    left: 0%;
+    bottom: calc(100% + 9px);
+    width: 300px;
+    z-index: -10;
+
+    &.r {
+      left: unset;
+      right: 0%;
+      scale: -1 1;
+    }
+  }
+  .wavetop {
+    position: absolute;
+    user-select: none;
+    pointer-events: none;
+    width: 100%;
+    height: 120px;
+    top: 0%;
+    left: 0%;
+    z-index: -1;
+  }
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+
+  .logoc {
+    background: #fdb4b0;
+    width: 400px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    margin-top: -180px;
+    img {
+      width: 100%;
+      height: 100%;
+      scale: 1.3;
+      object-fit: contain;
+    }
+  }
+  .footerde {
+    max-width: 800px;
+    color: #ffcf9f;
+    font-size: 1.5rem;
+    margin: 1em 0;
+  }
+  .ctbtn {
+    margin-bottom: 2em;
+    gap: 0.5em;
+  }
+  .attrib {
+    color: white;
+    font-size: 1.4rem;
+    a {
+      font-weight: bold;
+    }
+  }
+}

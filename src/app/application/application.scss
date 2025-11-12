@@ -1,0 +1,90 @@
+#p_ap {
+  margin-top: 100px;
+  .apstroke {
+    position: absolute;
+    width: 100%;
+    max-height: 500px;
+    z-index: -10;
+    top: 400px;
+  }
+  .circ {
+    position: absolute;
+    bottom: 10%;
+    left: -15%;
+    width: 1000px;
+    height: 1000px;
+    background: linear-gradient(to bottom, #ffd2d2, #ffd2d25e);
+    content: "";
+    border-radius: 50%;
+    &.r {
+      left: unset;
+      right: -15%;
+    }
+  }
+  .title {
+    max-width: min(800px, 90%);
+    margin: 0 auto;
+    img {
+      width: 100%;
+    }
+  }
+  .ap-list {
+    display: flex;
+    justify-content: center;
+    gap: 3em;
+    padding-top: 50px;
+    @media screen and (min-width: 1024px) {
+      .ap:nth-child(2) {
+        transform: translateY(15%);
+      }
+      .ap:nth-child(3) {
+        transform: translateY(30%);
+      }
+      .ap:nth-child(4) {
+        transform: translateY(15%);
+      }
+    }
+    .ap {
+      width: 280px;
+      aspect-ratio: 3 / 4;
+      position: relative;
+      background: url("/b/pt-dot25.png"),
+        linear-gradient(to bottom, #f9dbbd, #d77189);
+      background-size: 200px;
+      padding: 0;
+      .db {
+        position: absolute;
+        width: 190px;
+        top: -70px;
+        left: -80px;
+      }
+      border-width: 8px;
+      .h {
+        position: absolute;
+        right: -50px;
+        top: 0%;
+        width: 80px;
+      }
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1.2em;
+      .icon {
+        background: #ffffff;
+        box-shadow: 0px 4px 4px #450920;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        padding: 0.5em;
+        color: #450920;
+      }
+      span {
+        font-size: 2.7rem;
+        width: 100%;
+        text-align: center;
+        color: #450920;
+      }
+    }
+  }
+}

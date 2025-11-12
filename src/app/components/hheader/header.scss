@@ -1,0 +1,53 @@
+#header {
+  position: relative;
+  z-index: 100;
+
+  nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+
+    .main-logo {
+      height: 240px;
+      animation: breathe 3s infinite alternate;
+      @keyframes breathe {
+        from {
+          scale: 1;
+          rotate: -1deg;
+        }
+        to {
+          rotate: 2deg;
+          scale: 1.1;
+        }
+      }
+    }
+  }
+  .center-navigation {
+    margin: 0 auto;
+    max-width: 90%;
+    @media screen and (min-width: 1024px) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1em;
+      .btn-nav {
+        border-radius: 0.8em 0.2em;
+        font-size: 1.5rem;
+        font-family: var(--fontH);
+      }
+    }
+  }
+  .edge {
+    position: absolute;
+    left: 0%;
+    user-select: all;
+    pointer-events: none;
+    max-height: 200px;
+    &.r {
+      left: unset;
+      right: 0%;
+      scale: -1 1;
+    }
+  }
+}

@@ -1,0 +1,135 @@
+#p_faq {
+  #faq {
+    margin: 200px 0;
+
+    position: relative;
+    min-height: 1400px;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0%;
+      left: 0%;
+      width: 100%;
+      height: 100%;
+      background: url("/b/pt-minidot.png"),
+        linear-gradient(to bottom, #ffa5ab, #f9dbbd);
+      mask-image: linear-gradient(to bottom, transparent, white 300px, white);
+      z-index: -100;
+    }
+
+    .fh {
+      margin-top: 0px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      .chib {
+        max-height: 600px;
+        margin-top: -200px;
+        object-fit: contain;
+      }
+      .text {
+        width: min(1280px, 90%);
+        padding-bottom: 1em;
+      }
+      .desc {
+        max-width: 900px;
+        margin: 0 auto;
+        color: #a53961;
+        font-size: 1.4rem;
+        padding-bottom: 100px;
+      }
+    }
+
+    .faq-cat {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1em;
+      .btn-fq {
+        background: #d77189;
+        color: white;
+        font-family: var(--fontH);
+        font-size: 1.7rem;
+        padding: 0.25em 1em;
+        border-radius: 1em;
+        // S
+        &.s {
+          background: linear-gradient(
+            to bottom,
+            #d77189,
+            #d77189 46%,
+            #a53961 72%
+          );
+          border: 4px solid #450920;
+          color: #ffcf9f;
+        }
+      }
+    }
+
+    .fl {
+      display: flex;
+      flex-direction: column;
+
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2em;
+      .question {
+        border-radius: 1em;
+        background: #a53860;
+
+        &.c {
+          border: 4px solid #450920;
+          .a {
+            max-height: 0px;
+            opacity: 0;
+            padding: 0;
+            margin: 0;
+          }
+        }
+        .a {
+          padding: 1em;
+          background: url("/b/pt-dot25.png"), #da627d;
+          background-size: 150px;
+          border-radius: 0 0 1em 1em;
+          margin: 0.5em;
+          font-size: 1.3rem;
+          overflow: hidden;
+          max-height: 800px;
+          overflow-y: auto;
+        }
+        .q {
+          display: flex;
+          padding: 0.6em 1em;
+          color: #ffcf9f;
+          font-family: var(--fontH);
+          display: flex;
+          justify-content: space-between;
+          font-size: 1.2rem;
+          align-items: center;
+          .btn-drop {
+            aspect-ratio: 1 / 1;
+            width: 40px;
+
+            // padding: 0em;
+            svg {
+              width: 100%;
+              height: 100%;
+              scale: 4 6;
+            }
+          }
+        }
+        .a {
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+body:has(#p_faq) {
+  #footer {
+    margin-top: 0;
+  }
+}
