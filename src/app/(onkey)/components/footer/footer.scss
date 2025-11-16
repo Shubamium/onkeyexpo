@@ -1,7 +1,7 @@
 #footer {
   min-height: 600px;
-  background: url("/b/pt-dot25.png"),
-    linear-gradient(to bottom, #d77189, #6f1f3b);
+  background:
+    url("/b/pt-dot25.png"), linear-gradient(to bottom, #d77189, #6f1f3b);
   background-size: 300px, auto;
   border-top: 10px solid #450920;
   margin-top: 300px;
@@ -42,6 +42,8 @@
     aspect-ratio: 1 / 1;
     border-radius: 50%;
     margin-top: -180px;
+    user-select: none;
+    pointer-events: none;
     img {
       width: 100%;
       height: 100%;

@@ -5,6 +5,7 @@ import { RichText } from "@payloadcms/richtext-lexical/react";
 import { SerializedEditorState } from "@payloadcms/richtext-lexical/lexical";
 import { Media } from "@/payload-types";
 import { CSSProperties } from "react";
+import BunList from "./BunList";
 export default async function Home() {
   const p = await getPayload({
     config: await payloadConfig,
@@ -28,6 +29,7 @@ export default async function Home() {
           <div className="bcard b"></div>
           <div className="bcard c"></div>
           <div className="content">
+            <BunList />
             <img src="/p/hero-text2.png" alt="" className="text" />
             <p className="desc">
               {/* (placeholder?) <strong> OnKey Expo</strong> is a{" "}
@@ -49,6 +51,8 @@ export default async function Home() {
 
       <section id="about">
         <div className="bunny" />
+        <div className="circ l"></div>
+        <div className="circ r"></div>
         <div className="confine">
           <div className="l">
             <img src="/g/logo.png" alt="" className="logo" />

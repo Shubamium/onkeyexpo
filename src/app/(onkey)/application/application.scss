@@ -48,10 +48,25 @@
       width: 280px;
       aspect-ratio: 3 / 4;
       position: relative;
-      background: url("/b/pt-dot25.png"),
-        linear-gradient(to bottom, #f9dbbd, #d77189);
+      background:
+        url("/b/pt-dot25.png"), linear-gradient(to bottom, #f9dbbd, #d77189);
       background-size: 200px;
       padding: 0;
+
+      &:hover {
+        .db {
+          // rotate: 52deg;
+          animation: sway 1.5s infinite alternate steps(3);
+          @keyframes sway {
+            from {
+              rotate: -10deg;
+            }
+            to {
+              rotate: 30deg;
+            }
+          }
+        }
+      }
       .db {
         position: absolute;
         width: 190px;

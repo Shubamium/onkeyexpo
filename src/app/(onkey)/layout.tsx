@@ -6,6 +6,7 @@ import { CSSProperties } from "react";
 import { BiHeading } from "react-icons/bi";
 import Header from "./components/hheader/Header";
 import Footer from "./components/footer/Footer";
+import HoppingBunny from "./components/HoppingBunny";
 
 export const revalidate = 5;
 const hossRound = localFont({
@@ -52,6 +53,7 @@ export default function RootLayout({
           } as CSSProperties
         }
       >
+        <HoppingBunny />
         <Header />
         {children}
         <Footer />

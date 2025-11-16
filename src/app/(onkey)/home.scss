@@ -65,6 +65,9 @@
         scale: 1.15;
         max-width: 90%;
         margin-bottom: -30px;
+        user-select: none;
+        pointer-events: none;
+        margin-top: 50px;
       }
       .content {
         position: relative;
@@ -78,6 +81,54 @@
       }
       .btn-main {
         padding-inline: 4em;
+        font-size: 2.3rem;
+        border-width: 5px;
+      }
+    }
+    .bunlist {
+      .b {
+        position: absolute;
+        height: 200px;
+
+        object-fit: contain;
+        &:hover {
+          cursor: pointer;
+        }
+
+        &.tl {
+          left: 0%;
+          top: -10%;
+        }
+        &.ml {
+          left: -12%;
+          top: 25%;
+          height: 150px;
+          // rotate: 20deg;
+        }
+        &.bl {
+          left: 0%;
+          top: 68%;
+          transform: rotate(3deg);
+          height: 150px;
+        }
+        &.tr {
+          right: 0%;
+          top: -10%;
+          scale: 1;
+          height: 150px;
+        }
+        &.mr {
+          height: 170px;
+          right: -15%;
+          top: 15%;
+          // rotate: 20deg;
+        }
+        &.br {
+          height: 170px;
+          right: -5%;
+          top: 65%;
+          // rotate: 0deg;
+        }
       }
     }
   }
@@ -94,7 +145,7 @@
       background: url("/b/pt-bunny.png");
       background-size: 200px;
       opacity: 0.4;
-      z-index: -1;
+      z-index: -120;
       scale: 1.2;
 
       mask-image: linear-gradient(
@@ -115,6 +166,23 @@
       }
       content: "";
     }
+    .circ {
+      width: 800px;
+      border-radius: 50%;
+      height: 800px;
+      background: linear-gradient(to bottom, #ffcf9f, #ffcf9f67);
+      position: absolute;
+      left: 0%;
+      transform: translateX(-700px);
+      top: 10%;
+      z-index: -100;
+
+      &.r {
+        left: unset;
+        right: 0;
+        transform: translateX(700px);
+      }
+    }
     .confine {
       max-width: 1200px;
       margin: 0 auto;
@@ -123,6 +191,7 @@
       gap: 100px;
       position: relative;
       padding-left: 3em;
+
       &::before {
         content: "";
         position: absolute;
@@ -147,6 +216,8 @@
         scale: 0.8;
         object-fit: contain;
         object-position: center;
+        user-select: none;
+        pointer-events: none;
       }
       .l {
         display: flex;
@@ -209,6 +280,8 @@
           position: absolute;
           object-fit: contain;
           width: 200px;
+          user-select: none;
+          pointer-events: none;
           height: 200px;
         }
       }
@@ -245,6 +318,7 @@
       display: grid;
       grid-template-columns: 1fr 1.5fr;
       align-items: center;
+
       .l {
         position: relative;
         img {
