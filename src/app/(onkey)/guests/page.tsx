@@ -1,4 +1,4 @@
-import React from "react";
+import React, { CSSProperties } from "react";
 
 type Props = {};
 import "./guests.scss";
@@ -29,12 +29,21 @@ export default async function page({}: Props) {
   return (
     <main id="p_guests">
       <section id="guest">
+        <img src="/d/waveguest.png" alt="" className="wavedec" />
+        <div className="circ-l"></div>
         <div className="confine">
           <div className="l">
             <img src="/p/guesttext.png" alt="" className="title" />
             <RichText data={gt.text as SerializedEditorState} />
           </div>
-          <div className="r">
+          <div
+            className="r"
+            style={
+              {
+                "--dur": `${toRender.length * 3}s`,
+              } as CSSProperties
+            }
+          >
             {toRender?.map((gs, i) => {
               return (
                 <div className="hz" key={"Guest Set " + i}>
@@ -43,6 +52,7 @@ export default async function page({}: Props) {
                       return (
                         <a
                           href={g.link ?? undefined}
+                          target={"_blank"}
                           className="guest btn"
                           key={g.id + `${i} + ${j} set 1`}
                         >
@@ -60,6 +70,7 @@ export default async function page({}: Props) {
                       return (
                         <a
                           href={g.link ?? undefined}
+                          target={"_blank"}
                           className="guest btn"
                           key={g.id + `${i} + ${j} set 2`}
                         >
@@ -77,6 +88,7 @@ export default async function page({}: Props) {
                       return (
                         <a
                           href={g.link ?? undefined}
+                          target={"_blank"}
                           className="guest btn"
                           key={g.id + `${i} + ${j} set 3`}
                         >
@@ -187,6 +199,25 @@ export default async function page({}: Props) {
           </div>
         </div>
       </section>
+
+      <div className="guest-list">
+        <img src="/p/agtext.png" alt="" className="title" />
+        <div className="gl">
+          {gl.docs?.map((g, j) => {
+            return (
+              <a
+                href={g.link ?? undefined}
+                className="guest btn"
+                target="_blank"
+                key={g.id + `${j} all list`}
+              >
+                {/* <p className="pn"> {g.name}</p> */}
+                <img src={(g.image as Media)?.url ?? undefined} alt="" />
+              </a>
+            );
+          })}
+        </div>
+      </div>
     </main>
   );
 }

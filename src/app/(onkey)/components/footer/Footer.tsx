@@ -5,7 +5,16 @@ import { FaBluesky, FaThreads, FaXTwitter } from "react-icons/fa6";
 import { BsTiktok } from "react-icons/bs";
 import { FaDiscord, FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
 import "./footer.scss";
-export default function Footer({}: Props) {
+import { getPayload } from "payload";
+import payloadConfig from "@/payload.config";
+export default async function Footer({}: Props) {
+  const p = await getPayload({
+    config: await payloadConfig,
+  });
+
+  const hd = await p.findGlobal({
+    slug: "home",
+  });
   return (
     <footer id="footer">
       <img src="/b/footer-wave-top.png" alt="" className="wavetop" />
@@ -15,10 +24,11 @@ export default function Footer({}: Props) {
         <img src="/g/logo.png" alt="" />
       </div>
       <p className="footerde">
-        (Placeholder)OnKey Expo is a VTuber-centered convention focused on
+        {/* (Placeholder)OnKey Expo is a VTuber-centered convention focused on
         creators, fans, tech, and industry collaboration. With panels,
         performances, cosplay, anime, networking events, and cutting-edge
-        showcases, it’s built by and for the community.
+        showcases, it’s built by and for the community. */}
+        {hd["footer-description"]}
       </p>
       <div className="ctbtn">
         <a href="https://x.com/OnKeyExpo" className="btn btn-nav">

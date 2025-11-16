@@ -4,6 +4,7 @@ import payloadConfig from "@/payload.config";
 import { RichText } from "@payloadcms/richtext-lexical/react";
 import { SerializedEditorState } from "@payloadcms/richtext-lexical/lexical";
 import { Media } from "@/payload-types";
+import { CSSProperties } from "react";
 export default async function Home() {
   const p = await getPayload({
     config: await payloadConfig,
@@ -128,7 +129,14 @@ export default async function Home() {
           <img src="/p/partner-text.png" alt="" className="img" />
         </div>
         <div className="scroller">
-          <div className="scroll">
+          <div
+            className="scroll"
+            style={
+              {
+                "--dur": `${ptl.length * 3}s`,
+              } as CSSProperties
+            }
+          >
             {ptl?.map((p) => {
               return (
                 <a
@@ -145,7 +153,14 @@ export default async function Home() {
               );
             })}
           </div>
-          <div className="scroll">
+          <div
+            className="scroll"
+            style={
+              {
+                "--dur": `${ptl.length * 3}s`,
+              } as CSSProperties
+            }
+          >
             {ptl?.map((p) => {
               return (
                 <a
@@ -162,7 +177,14 @@ export default async function Home() {
               );
             })}
           </div>
-          <div className="scroll">
+          <div
+            className="scroll"
+            style={
+              {
+                "--dur": `${ptl.length * 3}s`,
+              } as CSSProperties
+            }
+          >
             {ptl?.map((p) => {
               return (
                 <a
