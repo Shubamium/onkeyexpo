@@ -164,6 +164,22 @@
       }
     }
   }
+  .bunnyrow {
+    width: 100%;
+    height: 300px;
+    background: url("/b/bunnyrow.png");
+    background-repeat: repeat-x;
+    margin-block: 50px;
+    animation: bgmove 150s infinite linear;
+    @keyframes bgmove {
+      from {
+        background-position-x: 20000px;
+      }
+      to {
+        background-position-x: 0%;
+      }
+    }
+  }
 }
 
 body:has(#p_faq) {

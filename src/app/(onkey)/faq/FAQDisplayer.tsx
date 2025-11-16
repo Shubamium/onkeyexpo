@@ -51,6 +51,7 @@ export default function FAQDisplayer({ text, flmap }: Props) {
           );
         })}
       </div>
+      <div className="bunnyrow"></div>
     </div>
   );
 }
