@@ -58,16 +58,37 @@
         letter-spacing: 0.5px;
         margin-bottom: 30px;
         font-weight: light;
+        @media screen and (max-width: 768px) {
+          margin: 0;
+          width: 100%;
+          text-align: left;
+          font-size: 1rem;
+        }
       }
       .text {
         filter: drop-shadow(0px 3px 4px #d77189);
         width: 100%;
         scale: 1.15;
-        max-width: 90%;
+        max-width: 86%;
         margin-bottom: -30px;
         user-select: none;
         pointer-events: none;
         margin-top: 50px;
+        @media screen and (max-width: 1200px) {
+        }
+        &.mobile {
+          display: none;
+        }
+        @media screen and (max-width: 768px) {
+          display: none;
+          max-width: 90%;
+          margin: 0;
+          scale: 1;
+
+          &.mobile {
+            display: block;
+          }
+        }
       }
       .content {
         position: relative;
@@ -78,11 +99,19 @@
         min-height: 600px;
         height: 100%;
         flex-direction: column;
+        @media screen and (max-width: 768px) {
+          align-items: flex-start;
+          padding: 0.25em;
+        }
       }
       .btn-main {
         padding-inline: 4em;
         font-size: 2.3rem;
         border-width: 5px;
+        @media screen and (max-width: 768px) {
+          padding-inline: 1em;
+          font-size: 1.52rem;
+        }
       }
     }
     .bunlist {
@@ -128,6 +157,21 @@
           right: -5%;
           top: 65%;
           // rotate: 0deg;
+        }
+
+        @media screen and (max-width: 768px) {
+          &.ml {
+            display: none;
+          }
+          &.bl {
+            display: none;
+          }
+          &.mr {
+            display: none;
+          }
+          &.br {
+            display: none;
+          }
         }
       }
     }
@@ -242,7 +286,7 @@
         align-items: center;
         justify-content: center;
         img {
-          scale: 1.1;
+          scale: 1;
           width: 100%;
           // transform: translateY(-10%);
           object-fit: contain;

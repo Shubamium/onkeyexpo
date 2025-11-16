@@ -25,15 +25,40 @@
       }
     }
   }
+  @media screen and (max-width: 1024px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .mobilelogo {
+    display: none;
+
+    @media screen and (max-width: 1024px) {
+      display: block;
+      max-width: 80%;
+      margin: 0 auto;
+    }
+  }
   nav {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 1em;
     position: relative;
+    @media screen and (max-width: 550px) {
+      display: none;
+    }
+    @media screen and (max-width: 768px) {
+      flex-wrap: wrap;
+      gap: 0;
+    }
     .main-logo {
       height: 240px;
       animation: breathe 3s infinite alternate;
+      @media screen and (max-width: 1024px) {
+        display: none;
+      }
       @keyframes breathe {
         from {
           scale: 1;
@@ -60,6 +85,25 @@
         font-family: var(--fontH);
       }
     }
+    @media screen and (max-width: 1024px) {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      .btn-nav {
+        border-radius: 1em;
+        font-size: 1.5rem;
+        width: 100%;
+      }
+      margin-bottom: 3em;
+    }
+    @media screen and (max-width: 550px) {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    @media screen and (max-width: 350px) {
+      grid-template-columns: 1fr;
+    }
   }
   .edge {
     position: absolute;
@@ -67,6 +111,11 @@
     user-select: all;
     pointer-events: none;
     max-height: 200px;
+    top: 0%;
+    z-index: -100;
+    @media screen and (max-width: 1024px) {
+      max-width: 20%;
+    }
     &.r {
       left: unset;
       right: 0%;

@@ -31,6 +31,7 @@ export default async function Home() {
           <div className="content">
             <BunList />
             <img src="/p/hero-text2.png" alt="" className="text" />
+            <img src="/p/hero-textm.png" alt="" className="text mobile" />
             <p className="desc">
               {/* (placeholder?) <strong> OnKey Expo</strong> is a{" "}
               <strong>VTuber-centered </strong>
@@ -72,7 +73,7 @@ export default async function Home() {
             </div>
           </div>
           <div className="r">
-            <img src="/g/mascot1.png" alt="" />
+            <img src="/g/chibi.webp" alt="" />
           </div>
         </div>
       </section>

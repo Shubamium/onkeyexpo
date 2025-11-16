@@ -9,6 +9,7 @@ export default function Header({}: Props) {
     <header id="header">
       <img src="/d/header-edge.svg" alt="" className="edge l" />
       <img src="/d/header-edge.svg" alt="" className="edge r" />
+      <img src="/g/logo.png" alt="" className="mobilelogo" />
       <nav>
         <div className="infitext">
           <p>OnKey Expo</p>
