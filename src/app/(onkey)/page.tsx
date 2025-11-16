@@ -28,7 +28,7 @@ export default async function Home() {
           <div className="bcard b"></div>
           <div className="bcard c"></div>
           <div className="content">
-            <img src="/p/hero-text.png" alt="" className="text" />
+            <img src="/p/hero-text2.png" alt="" className="text" />
             <p className="desc">
               {/* (placeholder?) <strong> OnKey Expo</strong> is a{" "}
               <strong>VTuber-centered </strong>
@@ -113,20 +113,20 @@ export default async function Home() {
       <section id="team">
         <div className="confine">
           <div className="l">
-            <img src="/p/teamtext.png" alt="" />
+            <img src="/p/teamtext2.png" alt="" className="title" />
             <img src="/b/bg-cebun.png" alt="" className="cebun" />
             <p>{hd.team}</p>
           </div>
 
           <div className="r">
-            <img src="/p/team-img.png" alt="" />
+            <img src="/p/team2.webp" alt="" />
           </div>
         </div>
       </section>
 
       <section id="partner">
         <div className="title">
-          <img src="/p/partner-text.png" alt="" className="img" />
+          <img src="/p/partner-text2.png" alt="" className="img" />
         </div>
         <div className="scroller">
           <div
