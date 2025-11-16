@@ -78,6 +78,8 @@ export default async function Home() {
       </section>
       <section id="trailer-location">
         <div className="confine">
+          <img src="/p/ableft.png" alt="" className="left" />
+          <img src="/g/b2.png" alt="" className="right" />
           <div className="l">
             <img src="/g/b1.png" alt="" className="b" />
             <iframe
