@@ -4,6 +4,9 @@
 
     position: relative;
     min-height: 1400px;
+    @media screen and (max-width: 420px) {
+      margin: 100px 0;
+    }
     &::before {
       content: "";
       position: absolute;
@@ -17,6 +20,9 @@
       mask-image: url("/d/faqmask.png");
       mask-size: 100% 100%;
       z-index: -100;
+      @media screen and (max-width: 420px) {
+        mask-image: linear-gradient(to bottom, transparent, white 300px, white);
+      }
     }
 
     .fh {
@@ -30,10 +36,24 @@
         max-height: 600px;
         margin-top: -200px;
         object-fit: contain;
+        @media screen and (max-width: 768px) {
+          max-width: 70%;
+          margin: 0 auto;
+        }
       }
       .text {
         width: min(1280px, 90%);
         padding-bottom: 1em;
+
+        &.mobile {
+          display: none;
+        }
+        @media screen and (max-width: 550px) {
+          display: none;
+          &.mobile {
+            display: block;
+          }
+        }
       }
       .desc {
         max-width: 700px;
@@ -41,6 +61,17 @@
         color: #a53961;
         font-size: 2rem;
         padding-bottom: 100px;
+        @media screen and (max-width: 550px) {
+          text-align: left;
+          padding-inline: 1em;
+        }
+        @media screen and (max-width: 420px) {
+          font-size: 1.2rem;
+        }
+        a {
+          color: #450920;
+          text-decoration: underline;
+        }
       }
     }
 
@@ -49,6 +80,11 @@
       align-items: center;
       justify-content: center;
       gap: 1em;
+      @media screen and (max-width: 1024px) {
+        width: 100%;
+        overflow-x: auto;
+        justify-content: left;
+      }
       .btn-fq {
         background: #d77189;
         color: white;
@@ -77,6 +113,9 @@
       max-width: 900px;
       margin: 0 auto;
       padding: 2em;
+      @media screen and (max-width: 420px) {
+        padding: 0em;
+      }
       .question {
         border-radius: 1em;
         background: #a53860;
@@ -107,8 +146,13 @@
           max-height: 800px;
           overflow-y: auto;
           transition: all 500ms ease;
+          @media screen and (max-width: 420px) {
+            font-size: 1.2rem;
+          }
           .payload-richtext {
-            font-size: 1.5rem;
+            @media screen and (max-width: 420px) {
+              font-size: 1.2rem;
+            }
             a {
               color: #f9dbbd;
             }
@@ -135,8 +179,13 @@
             -webkit-text-stroke: 1px #310a199a;
             text-shadow: 0px 2px 4px rgba(51, 7, 7, 0.616);
           }
+          @media screen and (max-width: 420px) {
+            font-size: 1.25rem;
+          }
+          flex-shrink: 0;
           align-items: center;
           .btn-drop {
+            flex-shrink: 0;
             aspect-ratio: 1 / 1;
             width: 40px;
             padding: 0em;

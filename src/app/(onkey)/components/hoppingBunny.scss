@@ -25,6 +25,10 @@
     left: var(--ranPos);
   }
   .bunny {
+    @media screen and (max-width: 550px) {
+      width: 120px;
+      height: 120px;
+    }
     user-select: none;
     pointer-events: none;
     z-index: 1000;

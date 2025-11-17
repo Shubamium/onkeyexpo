@@ -21,6 +21,7 @@ export default function FAQDisplayer({ text, flmap }: Props) {
       <div className="fh">
         <img src="/p/faqchibi.png" alt="" className="chib" />
         <img src="/p/faqtext.png" alt="" className="text" />
+        <img src="/p/faqtextm.png" alt="" className="text mobile" />
         <div className="desc">
           <RichText data={text as SerializedEditorState} />
         </div>

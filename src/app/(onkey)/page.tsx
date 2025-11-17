@@ -6,6 +6,7 @@ import { SerializedEditorState } from "@payloadcms/richtext-lexical/lexical";
 import { Media } from "@/payload-types";
 import { CSSProperties } from "react";
 import BunList from "./BunList";
+
 export default async function Home() {
   const p = await getPayload({
     config: await payloadConfig,
@@ -134,6 +135,7 @@ export default async function Home() {
       <section id="partner">
         <div className="title">
           <img src="/p/partner-text2.png" alt="" className="img" />
+          <img src="/p/partner-textm.png" alt="" className="img mobile" />
         </div>
         <div className="scroller">
           <div
