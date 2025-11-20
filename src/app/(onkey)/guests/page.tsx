@@ -23,6 +23,7 @@ export default async function page({}: Props) {
   });
   const gl = await p.find({
     collection: "guest",
+    limit: 0,
   });
 
   const toRender = splitIntoThree(gl.docs);
@@ -46,7 +47,15 @@ export default async function page({}: Props) {
           >
             {toRender?.map((gs, i) => {
               return (
-                <div className="hz" key={"Guest Set " + i}>
+                <div
+                  className="hz"
+                  key={"Guest Set " + i}
+                  style={
+                    {
+                      "--dur": `${gs.length * 4}s`,
+                    } as CSSProperties
+                  }
+                >
                   <div className="scroll">
                     {gs?.map((g, j) => {
                       return (
@@ -73,6 +82,11 @@ export default async function page({}: Props) {
                           target={"_blank"}
                           className="guest btn"
                           key={g.id + `${i} + ${j} set 2`}
+                          style={
+                            {
+                              "--dur": `${gs.length * 4}s`,
+                            } as CSSProperties
+                          }
                         >
                           <p className="pn"> {g.name}</p>
                           <img
@@ -91,6 +105,11 @@ export default async function page({}: Props) {
                           target={"_blank"}
                           className="guest btn"
                           key={g.id + `${i} + ${j} set 3`}
+                          style={
+                            {
+                              "--dur": `${gs.length * 4}s`,
+                            } as CSSProperties
+                          }
                         >
                           <p className="pn"> {g.name}</p>
                           <img
