@@ -18,6 +18,7 @@ export default async function Home() {
 
   const pt = await p.find({
     collection: "partners",
+    limt: 0,
   });
 
   const ptl = pt.docs;
