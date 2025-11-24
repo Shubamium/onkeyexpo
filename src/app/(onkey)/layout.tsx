@@ -32,9 +32,12 @@ const anchor = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "On Key Expo",
+  title: "OnKey Expo — East Coast VTuber Convention",
   description:
     "OnKey Expo is a VTuber-centered convention focused on creators, fans, tech, and industry collaboration. With panels, performances, cosplay,  anime, networking events, and cutting-edge showcases, it’s built by and for the community",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
