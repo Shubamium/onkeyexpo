@@ -75,6 +75,12 @@ export default function Header({}: Props) {
         <Link className="btn btn-nav" href="/faq">
           FAQ
         </Link>
+        <Link className="btn btn-nav" href="/announcements">
+          Announcements
+        </Link>
+        <Link className="btn btn-nav" href="/merch">
+          Merch
+        </Link>
       </div>
     </header>
   );

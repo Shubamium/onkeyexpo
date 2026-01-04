@@ -18,6 +18,11 @@ import { Partners } from "./collections/Partners";
 import { Home } from "./collections/globals/Home";
 import { FAQText } from "./collections/globals/FAQText";
 import { GuestText } from "./collections/globals/GuestText";
+import AnnCategory from "./collections/Announcements-category";
+import Announcements from "./collections/Announcements";
+import { AnnHL } from "./collections/globals/AnnouncementHighlights";
+import MerchCategory from "./collections/Merch-category";
+import Merch from "./collections/Merch";
 export default buildConfig({
   admin: {
     user: Users.slug,
@@ -25,8 +30,18 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  globals: [Home, FAQText, GuestText],
-  collections: [Partners, Guest, FAQ, Users, Media],
+  globals: [Home, FAQText, GuestText, AnnHL],
+  collections: [
+    Partners,
+    Guest,
+    FAQ,
+    Users,
+    Media,
+    AnnCategory,
+    Announcements,
+    MerchCategory,
+    Merch,
+  ],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "",
   typescript: {

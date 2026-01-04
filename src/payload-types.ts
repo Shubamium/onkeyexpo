@@ -72,6 +72,10 @@ export interface Config {
     faq: Faq;
     users: User;
     media: Media;
+    'announcement-category': AnnouncementCategory;
+    announcements: Announcement;
+    'merch-category': MerchCategory;
+    merch: Merch;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -84,6 +88,10 @@ export interface Config {
     faq: FaqSelect<false> | FaqSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
+    'announcement-category': AnnouncementCategorySelect<false> | AnnouncementCategorySelect<true>;
+    announcements: AnnouncementsSelect<false> | AnnouncementsSelect<true>;
+    'merch-category': MerchCategorySelect<false> | MerchCategorySelect<true>;
+    merch: MerchSelect<false> | MerchSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -96,11 +104,13 @@ export interface Config {
     home: Home;
     'faq-text': FaqText;
     'guest-text': GuestText;
+    annHl: AnnHl;
   };
   globalsSelect: {
     home: HomeSelect<false> | HomeSelect<true>;
     'faq-text': FaqTextSelect<false> | FaqTextSelect<true>;
     'guest-text': GuestTextSelect<false> | GuestTextSelect<true>;
+    annHl: AnnHlSelect<false> | AnnHlSelect<true>;
   };
   locale: null;
   user: User & {
@@ -229,6 +239,117 @@ export interface User {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "announcement-category".
+ */
+export interface AnnouncementCategory {
+  id: string;
+  name: string;
+  slug: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "announcements".
+ */
+export interface Announcement {
+  id: string;
+  title: string;
+  shortdesc?: string | null;
+  banner?: (string | null) | Media;
+  slug: string;
+  category?: (string | null) | AnnouncementCategory;
+  date?: string | null;
+  content?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "merch-category".
+ */
+export interface MerchCategory {
+  id: string;
+  name: string;
+  slug: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "merch".
+ */
+export interface Merch {
+  id: string;
+  title: string;
+  shortdesc?: string | null;
+  pimg?: (string | null) | Media;
+  extraimga?:
+    | {
+        image?: (string | null) | Media;
+        id?: string | null;
+      }[]
+    | null;
+  slug: string;
+  category?: (string | null) | MerchCategory;
+  price?: string | null;
+  buyUrl?: string | null;
+  variants?:
+    | {
+        name?: string | null;
+        variantList?: string[] | null;
+        id?: string | null;
+      }[]
+    | null;
+  longdesc?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  addInfo?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -270,6 +391,22 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'media';
         value: string | Media;
+      } | null)
+    | ({
+        relationTo: 'announcement-category';
+        value: string | AnnouncementCategory;
+      } | null)
+    | ({
+        relationTo: 'announcements';
+        value: string | Announcement;
+      } | null)
+    | ({
+        relationTo: 'merch-category';
+        value: string | MerchCategory;
+      } | null)
+    | ({
+        relationTo: 'merch';
+        value: string | Merch;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -393,6 +530,71 @@ export interface MediaSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "announcement-category_select".
+ */
+export interface AnnouncementCategorySelect<T extends boolean = true> {
+  name?: T;
+  slug?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "announcements_select".
+ */
+export interface AnnouncementsSelect<T extends boolean = true> {
+  title?: T;
+  shortdesc?: T;
+  banner?: T;
+  slug?: T;
+  category?: T;
+  date?: T;
+  content?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "merch-category_select".
+ */
+export interface MerchCategorySelect<T extends boolean = true> {
+  name?: T;
+  slug?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "merch_select".
+ */
+export interface MerchSelect<T extends boolean = true> {
+  title?: T;
+  shortdesc?: T;
+  pimg?: T;
+  extraimga?:
+    | T
+    | {
+        image?: T;
+        id?: T;
+      };
+  slug?: T;
+  category?: T;
+  price?: T;
+  buyUrl?: T;
+  variants?:
+    | T
+    | {
+        name?: T;
+        variantList?: T;
+        id?: T;
+      };
+  longdesc?: T;
+  addInfo?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv_select".
  */
 export interface PayloadKvSelect<T extends boolean = true> {
@@ -512,6 +714,17 @@ export interface GuestText {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "annHl".
+ */
+export interface AnnHl {
+  id: string;
+  hl_l?: (string | null) | Announcement;
+  hl_r?: (string | null) | Announcement;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "home_select".
  */
 export interface HomeSelect<T extends boolean = true> {
@@ -543,6 +756,17 @@ export interface FaqTextSelect<T extends boolean = true> {
  */
 export interface GuestTextSelect<T extends boolean = true> {
   text?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "annHl_select".
+ */
+export interface AnnHlSelect<T extends boolean = true> {
+  hl_l?: T;
+  hl_r?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

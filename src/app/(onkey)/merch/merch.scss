@@ -1,0 +1,141 @@
+#p_merch {
+  .confine {
+    max-width: min(1220px, 90%);
+    margin: 100px auto;
+  }
+  .merch-h {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1em;
+    .text {
+      .banner {
+        max-height: 70px;
+      }
+      .desc {
+        max-width: 700px;
+        color: #a53961;
+        font-size: 1.2rem;
+      }
+    }
+    .category {
+      .category-selection {
+        background: linear-gradient(to right, #d77189, #ffcf9f);
+        border: 3px solid #450920;
+        font-family: var(--fontP);
+        color: #450920;
+        padding: 0.25em 1em;
+        border-radius: 1em;
+        font-size: 1.4rem;
+        min-width: 300px;
+        position: relative;
+        appearance: none;
+      }
+      position: relative;
+      .ficon {
+        position: absolute;
+        top: 10px;
+        z-index: 10;
+        right: 8%;
+        color: #450920;
+        font-size: 1.4rem;
+      }
+    }
+  }
+
+  .merch-l {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2em;
+    margin: 40px 0;
+    .merch {
+      background:
+        url("/b/pt-minidot.png"), linear-gradient(to bottom, #f9dbbd, #d77189);
+      background-blend-mode: multiply;
+      background-size: 10px;
+      border-radius: 1em;
+      border: 2px solid #450920;
+      box-shadow: 0px 6px 0px #a53860;
+      padding: 1em;
+      position: relative;
+      padding-top: 1.45em;
+      .category {
+        color: #ffcf9f;
+        background: #a53860;
+        position: absolute;
+        top: 0%;
+        transform: translateY(-10px);
+        border-radius: 1em;
+        right: 4%;
+        padding: 0 1em;
+        padding-top: 0.25em;
+      }
+      .banner {
+        width: 100%;
+        height: auto;
+        box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.257);
+        border-radius: 1em;
+      }
+
+      display: flex;
+      flex-direction: column;
+
+      gap: 1em;
+      .minidesc {
+        font-size: 1.4rem;
+        margin-top: 0.25em;
+      }
+      .info {
+        min-height: 150px;
+        margin: 1em 0;
+        h2 {
+          color: #a53860;
+        }
+        p {
+          color: #a53860;
+        }
+      }
+      .action {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        .price {
+          p {
+            background: #a53860;
+            color: #ffcf9f;
+            font-size: 2.2rem;
+            padding: 0.15em 0.5em;
+            font-family: var(--fontH);
+            border-radius: 1em;
+            min-width: 140px;
+          }
+        }
+
+        .btn-buy {
+          border: 2px solid #450920;
+          color: #a53860;
+          background:
+            url("/b/pt-dot.png"), linear-gradient(to bottom, #f9dbbd, #d77189);
+          font-family: var(--fontP);
+          padding: 0em 1em;
+          padding-top: 0.25em;
+          border-radius: 1em;
+          font-size: 1.5rem;
+
+          display: flex;
+          align-items: center;
+          position: relative;
+          .bunny {
+            position: absolute;
+            top: -30px;
+            object-fit: contain;
+            right: -10%;
+            width: 50px;
+            height: 50px;
+          }
+        }
+      }
+    }
+  }
+}
