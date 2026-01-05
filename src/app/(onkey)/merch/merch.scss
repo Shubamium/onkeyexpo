@@ -3,6 +3,23 @@
     max-width: min(1220px, 90%);
     margin: 100px auto;
   }
+  position: relative;
+  .wavedec {
+    position: absolute;
+    left: 0%;
+    // height: 100%;
+    width: 100%;
+    height: 1000px;
+    object-fit: fill;
+    // top: 20%;
+    bottom: 70%;
+    z-index: -10;
+    opacity: 0.8;
+    @media screen and (max-width: 768px) {
+      top: 0%;
+      max-width: 100%;
+    }
+  }
   .merch-h {
     display: flex;
     align-items: flex-end;

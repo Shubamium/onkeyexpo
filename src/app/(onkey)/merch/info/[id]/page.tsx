@@ -7,6 +7,7 @@ import payloadConfig from "@/payload.config";
 import { Media, MerchCategory } from "@/payload-types";
 import { RichText } from "@payloadcms/richtext-lexical/react";
 import { SerializedEditorState } from "@payloadcms/richtext-lexical/lexical";
+import MerchImages from "./MerchImages";
 
 type Props = {
   params: Promise<{ id?: string }>;
@@ -32,26 +33,9 @@ export default async function page({ params }: Props) {
   const md = merch.docs[0];
   return (
     <main id="p_merch-info">
+      <div className="circ l"></div>
       <div className="confine">
-        <div className="media">
-          <img
-            src={(md.pimg as Media)?.url ?? undefined}
-            alt=""
-            className="main-img"
-          />
-          <div className="media-list">
-            {md.extraimga?.map((img, i) => {
-              return (
-                <img
-                  src={(img.image as Media)?.url ?? undefined}
-                  key={img.id}
-                  alt=""
-                  className="other btn"
-                />
-              );
-            })}
-          </div>
-        </div>
+        <MerchImages md={md} />
         <div className="right">
           <div className="maininfo">
             <h2>{md.title}</h2>

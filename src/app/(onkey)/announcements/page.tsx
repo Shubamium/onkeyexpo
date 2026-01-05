@@ -55,6 +55,8 @@ export default async function page({ searchParams }: Props) {
 
   return (
     <main id="p_announcement">
+      <div className="circ l"></div>
+      <div className="circ r"></div>
       <section className="an-title">
         <img src="/p/anntext.png" alt="" className="pt" />
         <p>

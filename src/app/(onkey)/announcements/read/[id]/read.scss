@@ -1,5 +1,6 @@
 #p_read {
   margin-top: 100px;
+  position: relative;
   .confine {
     max-width: min(900px, 90%);
     margin: 0 auto;
@@ -81,6 +82,26 @@
       p {
         padding-bottom: 1em;
       }
+    }
+  }
+
+  .circ {
+    content: "";
+    position: fixed;
+    width: 44svw;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    top: 20%;
+    background: linear-gradient(to bottom, #a53860, #ffacac);
+    opacity: 0.2;
+    z-index: -10;
+    &.l {
+      left: 0%;
+      transform: translateX(-50%);
+    }
+    &.r {
+      transform: translateX(50%);
+      right: 0%;
     }
   }
 }

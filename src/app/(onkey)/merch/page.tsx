@@ -41,6 +41,7 @@ export default async function page({ searchParams }: Props) {
 
   return (
     <main id="p_merch">
+      <img src="/d/waveguest.png" alt="" className="wavedec" />
       <div className="confine">
         <div className="merch-h">
           <div className="text">

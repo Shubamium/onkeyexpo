@@ -35,6 +35,8 @@ export default async function AnnReadPage({ params }: Props) {
   const nd = announcement.docs[0];
   return (
     <main id="p_read">
+      <div className="circ l"></div>
+      <div className="circ r"></div>
       <div className="confine">
         <div className="controls">
           <Link className="btn btn-back" href="/announcements">
