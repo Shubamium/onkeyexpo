@@ -50,23 +50,48 @@
       background:
         url("/b/pt-dot.png"), linear-gradient(to bottom, #f9dbbd, #d77189);
       background-size: 300px;
-
+      @media screen and (max-width: 550px) {
+        max-width: 95%;
+        margin: 0.5em;
+        padding: 1em;
+      }
+      @media screen and (max-width: 1024px) {
+        display: flex;
+        flex-direction: column-reverse;
+      }
       padding: 2em;
       border-radius: 1.5em;
       border: 4px solid #450920;
       gap: 2em;
       // Remove this on mobile
       height: 700px;
+      @media screen and (max-width: 1024px) {
+        height: auto;
+      }
       .r {
         display: flex;
         gap: 1em;
         flex-direction: column;
         justify-content: center;
+        @media screen and (max-width: 1024px) {
+          .hl-h {
+            max-width: 240px;
+            margin: 0 auto;
+          }
+        }
+        @media screen and (max-width: 420px) {
+          .hl-h {
+            max-width: 100%;
+          }
+        }
       }
       .news-hl {
         display: flex;
         flex-direction: column;
         position: relative;
+        @media screen and (max-width: 1024px) {
+          min-height: 55vh;
+        }
         z-index: 1;
         height: 100%;
         border-radius: 1em;
@@ -84,6 +109,9 @@
         h2 {
           font-size: 2.4rem;
           line-height: 1;
+          @media screen and (max-width: 1024px) {
+            font-size: 1.5rem;
+          }
         }
         outline: 0px solid #450920;
         outline-offset: 30px;
@@ -104,6 +132,9 @@
             border-radius: 1em;
             font-size: 1.5rem;
             font-weight: lighter;
+            @media screen and (max-width: 1024px) {
+              font-size: 1rem;
+            }
           }
         }
         &::before {
@@ -132,6 +163,9 @@
         .minidesc {
           opacity: 0.67;
           font-size: 1.3rem;
+          @media screen and (max-width: 1024px) {
+            font-size: 1rem;
+          }
         }
         .btn-next {
           color: white;
@@ -157,8 +191,10 @@
     margin-top: 200px;
     .catlist {
       display: flex;
-
+      max-width: 100%;
+      overflow-x: auto;
       gap: 1em;
+      padding: 0.5em;
       .btn-cat {
         background: #d77189;
         color: white;
@@ -191,7 +227,9 @@
       flex-direction: column;
       gap: 1em;
       margin: 1em 0;
-
+      @media screen and (max-width: 1024px) {
+        margin: 0.25em 0;
+      }
       .empty {
         background: #f9dbbd;
         text-align: center;
@@ -204,6 +242,10 @@
         display: grid;
         grid-template-columns: 2fr 3fr;
         border-radius: 1.25em;
+        @media screen and (max-width: 1024px) {
+          display: flex;
+          flex-direction: column;
+        }
         border: 3px solid #450920;
         background:
           url("/b/pt-dot.png"), linear-gradient(to bottom, #f9dbbd, #d77189);
@@ -228,11 +270,15 @@
           justify-content: space-between;
           h2 {
             font-size: 1.7rem;
+            @media screen and (max-width: 1024px) {
+              font-size: 1.2rem;
+            }
           }
           .category {
             display: flex;
             align-items: center;
             gap: 1em;
+            flex-wrap: wrap;
             .c {
               background: #a53860;
               font-size: 1.2rem;
@@ -247,6 +293,10 @@
               font-size: 1.2rem;
               transform: translateY(2px);
               color: #d77189;
+              @media screen and (max-width: 1024px) {
+                color: #f9dbbd;
+                filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.248));
+              }
               svg {
                 transform: translateY(-2px);
               }
@@ -256,6 +306,7 @@
 
           .minidesc {
             color: #a53860;
+            filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.248));
             // text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.253);
             font-size: 1.2rem;
             padding-bottom: 1em;
@@ -277,7 +328,9 @@
               border-radius: 0.25em;
               gap: 1em;
               font-size: 1.4rem;
-
+              @media screen and (max-width: 420px) {
+                font-size: 1rem;
+              }
               cursor: var(--pointer);
               transition: all 500ms ease;
               &:hover {

@@ -29,6 +29,13 @@
     .text {
       .banner {
         max-height: 70px;
+        @media screen and (max-width: 650px) {
+          max-width: 400px;
+          max-height: auto;
+        }
+        @media screen and (max-width: 450px) {
+          max-width: 85%;
+        }
       }
       .desc {
         max-width: 700px;
@@ -66,6 +73,13 @@
     grid-template-columns: 1fr 1fr 1fr;
     gap: 2em;
     margin: 40px 0;
+    @media screen and (max-width: 1024px) {
+      grid-template-columns: 1fr 1fr;
+    }
+    @media screen and (max-width: 768px) {
+      display: flex;
+      flex-direction: column;
+    }
     .merch {
       background:
         url("/b/pt-minidot.png"), linear-gradient(to bottom, #f9dbbd, #d77189);

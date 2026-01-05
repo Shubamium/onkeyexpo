@@ -45,6 +45,9 @@
       h2 {
         font-size: 2.1rem;
         color: #6f1f3b;
+        @media screen and (max-width: 1024px) {
+          font-size: 1.4rem;
+        }
       }
       .info {
         display: flex;

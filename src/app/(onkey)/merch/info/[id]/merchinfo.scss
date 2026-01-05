@@ -11,6 +11,9 @@
     background: linear-gradient(to bottom, #a53860, #ffacac);
     opacity: 0.2;
     z-index: -10;
+    @media screen and (max-width: 1024px) {
+      display: none;
+    }
     &.l {
       left: 0%;
       transform: translateX(-50%);
@@ -26,6 +29,9 @@
 
     display: grid;
     grid-template-columns: 50% 1fr;
+    @media screen and (max-width: 1024px) {
+      grid-template-columns: 100%;
+    }
     gap: 50px;
     .media {
       width: 100%;
@@ -47,11 +53,14 @@
         flex-shrink: 1;
         gap: 0.25em;
         flex-grow: 0;
+        @media screen and (max-width: 1024px) {
+          overflow-x: auto;
+        }
         .other {
           height: 100%;
           width: auto;
           min-width: 0;
-          object-fit: contain;
+          object-fit: cover;
         }
       }
     }
@@ -66,6 +75,9 @@
           font-size: 3rem;
           color: #6f1f3b;
           font-family: var(--fontP);
+          @media screen and (max-width: 1024px) {
+            font-size: 2rem;
+          }
         }
         p {
           color: #ffcf9f;
@@ -75,6 +87,9 @@
           font-size: 1.8rem;
 
           border-radius: 2em;
+          @media screen and (max-width: 1024px) {
+            font-size: 1.3rem;
+          }
         }
       }
 
@@ -93,12 +108,18 @@
           font-family: var(--fontP);
           padding: 0.1em 1.1em;
           padding-top: 0.25em;
+          @media screen and (max-width: 1024px) {
+            font-size: 1.3rem;
+          }
         }
 
         .price {
           font-size: 3rem;
           color: #ffcf9f;
           font-family: var(--fontH);
+          @media screen and (max-width: 1024px) {
+            font-size: 2rem;
+          }
         }
       }
 
@@ -130,6 +151,9 @@
         p {
           padding-bottom: 1.25em;
           font-size: 1.2rem;
+          @media screen and (max-width: 1024px) {
+            font-size: 1rem;
+          }
         }
       }
 
@@ -137,6 +161,9 @@
         background: #ffcf9f3c;
         padding: 2em;
         border-radius: 1em;
+        @media screen and (max-width: 1024px) {
+          padding: 1.4em;
+        }
         .title {
           color: #a53860;
           font-family: var(--fontP);
@@ -154,11 +181,19 @@
           width: 140px;
           height: 140px;
           object-fit: contain;
+          @media screen and (max-width: 420px) {
+            width: 100px;
+            height: 100px;
+            right: -10%;
+          }
         }
         p {
           color: #d77189;
 
           font-size: 1.2rem;
+          @media screen and (max-width: 1024px) {
+            font-size: 1rem;
+          }
         }
       }
     }
