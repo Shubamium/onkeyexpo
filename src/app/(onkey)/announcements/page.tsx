@@ -15,6 +15,8 @@ import { Announcement, AnnouncementCategory, Media } from "@/payload-types";
 import Link from "next/link";
 import AnnCategorySelector from "./AnnCategorySelector";
 import { equal } from "assert";
+import { RichText } from "@payloadcms/richtext-lexical/react";
+import { SerializedEditorState } from "@payloadcms/richtext-lexical/lexical";
 
 type Props = {
   searchParams: Promise<{
@@ -47,7 +49,7 @@ export default async function page({ searchParams }: Props) {
     collection: "announcement-category",
   });
   const hl = await payload.findGlobal({
-    slug: "annHl",
+    slug: "announcementglobal",
   });
 
   const hll = hl.hl_l as Announcement;
@@ -59,12 +61,7 @@ export default async function page({ searchParams }: Props) {
       <div className="circ r"></div>
       <section className="an-title">
         <img src="/p/anntext.png" alt="" className="pt" />
-        <p>
-          (Placeholder) OnKey Expo is a VTuber-centered convention focused on
-          creators, fans, tech, and industry collaboration. With panels,
-          performances, cosplay, anime, networking events, and cutting-edge
-          showcases, it’s built by and for the community.{" "}
-        </p>
+        <RichText data={hl.text as SerializedEditorState}></RichText>
       </section>
       <section id="an-hl">
         <div className="panel">

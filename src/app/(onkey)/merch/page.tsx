@@ -7,6 +7,8 @@ import { Media, MerchCategory } from "@/payload-types";
 import Link from "next/link";
 import { FaFilter } from "react-icons/fa";
 import MerchFilter from "./MerchFilter";
+import { RichText } from "@payloadcms/richtext-lexical/react";
+import { SerializedEditorState } from "@payloadcms/richtext-lexical/lexical";
 
 type Props = {
   searchParams: Promise<{
@@ -39,6 +41,10 @@ export default async function page({ searchParams }: Props) {
     collection: "merch-category",
   });
 
+  const merchData = await payload.findGlobal({
+    slug: "merchglobal",
+  });
+
   return (
     <main id="p_merch">
       <img src="/d/waveguest.png" alt="" className="wavedec" />
@@ -46,12 +52,11 @@ export default async function page({ searchParams }: Props) {
         <div className="merch-h">
           <div className="text">
             <img src="/p/merchtext.png" alt="" className="banner" />
-            <p className="desc">
-              (Placeholder)OnKey Expo is a VTuber-centered convention focused on
-              creators, fans, tech, and industry collaboration. With panels,
-              performances, cosplay, anime, networking events, and cutting-edge
-              showcases, it’s built by and for the community.{" "}
-            </p>
+            {/* <p className="desc"></p>/ */}
+            <RichText
+              className="desc"
+              data={merchData.text as SerializedEditorState}
+            ></RichText>
           </div>
           <MerchFilter merchcat={merchcat.docs} />
         </div>

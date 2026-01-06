@@ -4,7 +4,19 @@ import "./header.scss";
 import Link from "next/link";
 import { FaBluesky, FaThreads, FaXTwitter } from "react-icons/fa6";
 import { BsTiktok } from "react-icons/bs";
-export default function Header({}: Props) {
+import { getPayload } from "payload";
+import payloadConfig from "@/payload.config";
+export default async function Header({}: Props) {
+  const payload = await getPayload({
+    config: await payloadConfig,
+  });
+  const merchData = await payload.findGlobal({
+    slug: "merchglobal",
+  });
+  const annData = await payload.findGlobal({
+    slug: "announcementglobal",
+  });
+
   return (
     <header id="header">
       <img src="/d/header-edge.svg" alt="" className="edge l" />
@@ -75,12 +87,16 @@ export default function Header({}: Props) {
         <Link className="btn btn-nav" href="/faq">
           FAQ
         </Link>
-        <Link className="btn btn-nav" href="/announcements">
-          Announcements
-        </Link>
-        <Link className="btn btn-nav" href="/merch">
-          Merch
-        </Link>
+        {annData.visible && (
+          <Link className="btn btn-nav" href="/announcements">
+            Announcements
+          </Link>
+        )}
+        {merchData.visible && (
+          <Link className="btn btn-nav" href="/merch">
+            Merch
+          </Link>
+        )}
       </div>
     </header>
   );

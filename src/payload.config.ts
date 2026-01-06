@@ -23,6 +23,8 @@ import Announcements from "./collections/Announcements";
 import { AnnHL } from "./collections/globals/AnnouncementHighlights";
 import MerchCategory from "./collections/Merch-category";
 import Merch from "./collections/Merch";
+import { AnnouncementGlobal } from "./collections/globals/Announcement";
+import { MerchGlobal } from "./collections/globals/MerchGlobal";
 export default buildConfig({
   admin: {
     user: Users.slug,
@@ -30,7 +32,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  globals: [Home, FAQText, GuestText, AnnHL],
+  globals: [Home, FAQText, GuestText, AnnouncementGlobal, MerchGlobal],
   collections: [
     Partners,
     Guest,

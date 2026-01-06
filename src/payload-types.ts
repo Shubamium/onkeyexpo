@@ -104,13 +104,15 @@ export interface Config {
     home: Home;
     'faq-text': FaqText;
     'guest-text': GuestText;
-    annHl: AnnHl;
+    announcementglobal: Announcementglobal;
+    merchglobal: Merchglobal;
   };
   globalsSelect: {
     home: HomeSelect<false> | HomeSelect<true>;
     'faq-text': FaqTextSelect<false> | FaqTextSelect<true>;
     'guest-text': GuestTextSelect<false> | GuestTextSelect<true>;
-    annHl: AnnHlSelect<false> | AnnHlSelect<true>;
+    announcementglobal: AnnouncementglobalSelect<false> | AnnouncementglobalSelect<true>;
+    merchglobal: MerchglobalSelect<false> | MerchglobalSelect<true>;
   };
   locale: null;
   user: User & {
@@ -714,12 +716,53 @@ export interface GuestText {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "annHl".
+ * via the `definition` "announcementglobal".
  */
-export interface AnnHl {
+export interface Announcementglobal {
   id: string;
+  visible?: boolean | null;
+  text?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
   hl_l?: (string | null) | Announcement;
   hl_r?: (string | null) | Announcement;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "merchglobal".
+ */
+export interface Merchglobal {
+  id: string;
+  visible?: boolean | null;
+  text?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -762,11 +805,24 @@ export interface GuestTextSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "annHl_select".
+ * via the `definition` "announcementglobal_select".
  */
-export interface AnnHlSelect<T extends boolean = true> {
+export interface AnnouncementglobalSelect<T extends boolean = true> {
+  visible?: T;
+  text?: T;
   hl_l?: T;
   hl_r?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "merchglobal_select".
+ */
+export interface MerchglobalSelect<T extends boolean = true> {
+  visible?: T;
+  text?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
