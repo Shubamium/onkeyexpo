@@ -120,7 +120,7 @@ export default async function page({ searchParams }: Props) {
           </div>
         </div>
       </section>
-
+<></>
       <section id="an-nl">
         <AnnCategorySelector acat={cat} cats={categories.docs} />
         <div className="news-list">
