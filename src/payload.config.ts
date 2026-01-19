@@ -62,7 +62,7 @@ export default buildConfig({
         },
       },
       config: {
-        endpoint: "https://minio-api.venmi.art",
+        endpoint: "https://minio-api.venmiart.com",
         credentials: {
           accessKeyId: process.env.MINIOA ?? "",
           secretAccessKey: process.env.MINIOK ?? "",
