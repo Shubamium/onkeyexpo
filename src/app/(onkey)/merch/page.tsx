@@ -61,6 +61,7 @@ export default async function page({ searchParams }: Props) {
           <MerchFilter merchcat={merchcat.docs} />
         </div>
         <></>
+        <></>
         <div className="merch-l">
           {merch.docs.map((m) => {
             return (
