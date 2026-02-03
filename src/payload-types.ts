@@ -641,6 +641,7 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
  */
 export interface Home {
   id: string;
+  'main-date'?: string | null;
   'hero-description'?: string | null;
   'call-to-action'?: string | null;
   trailer?: string | null;
@@ -771,6 +772,7 @@ export interface Merchglobal {
  * via the `definition` "home_select".
  */
 export interface HomeSelect<T extends boolean = true> {
+  'main-date'?: T;
   'hero-description'?: T;
   'call-to-action'?: T;
   trailer?: T;

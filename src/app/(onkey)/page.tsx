@@ -32,6 +32,7 @@ export default async function Home() {
           <div className="bcard c"></div>
           <div className="content">
             <BunList />
+            {hd["main-date"] && <div className="date">{hd["main-date"]}</div>}
             <img src="/p/hero-text2.png" alt="" className="text" />
             <img src="/p/hero-textm.png" alt="" className="text mobile" />
             <p className="desc">

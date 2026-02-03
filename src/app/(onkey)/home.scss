@@ -105,6 +105,17 @@
         min-height: 600px;
         height: 100%;
         flex-direction: column;
+        .date {
+          font-size: 2.3rem;
+          background: #ffcf9f;
+          color: #a53860;
+          font-family: var(--fontH);
+          padding: 0.15em 1em;
+          margin-bottom: -20px;
+          margin-top: -20px;
+          border-radius: 0.5em;
+          box-shadow: 0px 5px 0px #a53860a2;
+        }
         @media screen and (max-width: 768px) {
           align-items: flex-start;
           padding: 1em;

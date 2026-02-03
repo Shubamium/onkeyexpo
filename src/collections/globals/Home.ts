@@ -4,6 +4,10 @@ export const Home: GlobalConfig = {
   slug: "home",
   fields: [
     {
+      name: "main-date",
+      type: "text",
+    },
+    {
       name: "hero-description",
       type: "textarea",
     },
