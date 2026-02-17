@@ -82,7 +82,11 @@ export default async function page({ searchParams }: Props) {
                 <p className="minidesc">{hll.shortdesc}</p>
 
                 <Link
-                  href={`/announcements/read/${hll.slug}`}
+                  href={
+                    hlr["is-external"]
+                      ? hll.slug
+                      : `/announcements/read/${hll.slug}`
+                  }
                   className=" btn-next"
                 >
                   <span>VIEW MORE</span>
@@ -109,7 +113,11 @@ export default async function page({ searchParams }: Props) {
                 <p className="minidesc">{hlr.shortdesc}</p>
 
                 <Link
-                  href={`/announcements/read/${hlr.slug}`}
+                  href={
+                    hlr["is-external"]
+                      ? hlr.slug
+                      : `/announcements/read/${hlr.slug}`
+                  }
                   className=" btn-next"
                 >
                   <span>VIEW MORE</span>
@@ -120,7 +128,7 @@ export default async function page({ searchParams }: Props) {
           </div>
         </div>
       </section>
-<></>
+      <></>
       <section id="an-nl">
         <AnnCategorySelector acat={cat} cats={categories.docs} />
         <div className="news-list">
@@ -150,7 +158,11 @@ export default async function page({ searchParams }: Props) {
                   </div>
                   <div className="action">
                     <Link
-                      href={`/announcements/read/${ann.slug}`}
+                      href={
+                        ann["is-external"]
+                          ? ann.slug
+                          : `/announcements/read/${ann.slug}`
+                      }
                       className="btn-rm"
                     >
                       <span>READ MORE</span>

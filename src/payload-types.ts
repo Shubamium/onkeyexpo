@@ -260,6 +260,7 @@ export interface Announcement {
   shortdesc?: string | null;
   banner?: (string | null) | Media;
   slug: string;
+  'is-external'?: boolean | null;
   category?: (string | null) | AnnouncementCategory;
   date?: string | null;
   content?: {
@@ -549,6 +550,7 @@ export interface AnnouncementsSelect<T extends boolean = true> {
   shortdesc?: T;
   banner?: T;
   slug?: T;
+  'is-external'?: T;
   category?: T;
   date?: T;
   content?: T;

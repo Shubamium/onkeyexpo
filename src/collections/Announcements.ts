@@ -27,6 +27,10 @@ const Announcements: CollectionConfig = {
       required: true,
     },
     {
+      name: "is-external",
+      type: "checkbox",
+    },
+    {
       name: "category",
       type: "relationship",
       relationTo: "announcement-category",

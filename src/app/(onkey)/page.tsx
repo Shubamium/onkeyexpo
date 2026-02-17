@@ -129,7 +129,7 @@ export default async function Home() {
           </div>
 
           <div className="r">
-            <img src="/p/team2.webp" alt="" />
+            <img src="/p/team3.webp" alt="" />
           </div>
         </div>
       </section>
