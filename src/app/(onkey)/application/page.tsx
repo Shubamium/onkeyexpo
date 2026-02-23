@@ -21,7 +21,7 @@ export default function page({}: Props) {
 
       <div className="ap-list">
         <Link
-          href={"https://forms.gle/nB9ahueVkBWZ3wiC8"}
+          href={"https://forms.gle/RHCRwtoKnEjzZL1B9"}
           className="ap btn btn-main"
         >
           <img src="/g/b1.png" alt="" className="db" />
@@ -30,7 +30,7 @@ export default function page({}: Props) {
           <span>STAFF</span>
         </Link>
         <Link
-          href={"https://forms.gle/TvjLjwjqj55vPg3j6"}
+          href={"https://forms.gle/6mrsHjUanPTUANXA8"}
           className="ap btn btn-main"
         >
           <img src="/g/b1.png" alt="" className="db" />
@@ -39,7 +39,7 @@ export default function page({}: Props) {
           <span>GUEST</span>
         </Link>
         <Link
-          href={"https://forms.gle/J3KDCYCTqbdqGRjf6"}
+          href={"https://forms.gle/DNEKMZEvfm8HiCLX6"}
           className="ap btn btn-main"
         >
           <img src="/g/b1.png" alt="" className="db" />
@@ -57,7 +57,7 @@ export default function page({}: Props) {
           <span>BOOTH/VENDOR</span>
         </Link>
         <Link
-          href={"https://forms.gle/LZBDfPHLi5QsyPL3A"}
+          href={"https://forms.gle/VANfDPttqCqTVd9s7"}
           className="ap btn btn-main"
         >
           <img src="/g/b1.png" alt="" className="db" />
