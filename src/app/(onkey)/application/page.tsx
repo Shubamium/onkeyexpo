@@ -48,7 +48,7 @@ export default function page({}: Props) {
           <span>PANEL</span>
         </Link>
         <Link
-          href={"https://forms.gle/NFKX7y6B1NhK8zLe6"}
+          href={"https://forms.gle/nDeKiZVbF9s3xYqH9"}
           className="ap btn btn-main"
         >
           <img src="/g/b1.png" alt="" className="db" />
