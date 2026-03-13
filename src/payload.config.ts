@@ -25,6 +25,12 @@ import MerchCategory from "./collections/Merch-category";
 import Merch from "./collections/Merch";
 import { AnnouncementGlobal } from "./collections/globals/Announcement";
 import { MerchGlobal } from "./collections/globals/MerchGlobal";
+import { ADPartners } from "./collections/afterdark/AD-Partners";
+import { ADGuest } from "./collections/afterdark/AD-Guest";
+import ADFAQ from "./collections/afterdark/AD-FAQ";
+import ADAnnouncements from "./collections/afterdark/AD-Announcements";
+import { Application } from "./collections/globals/Application";
+import { ADApplication } from "./collections/globals/afterdark/AD-Application";
 export default buildConfig({
   admin: {
     user: Users.slug,
@@ -32,7 +38,15 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  globals: [Home, FAQText, GuestText, AnnouncementGlobal, MerchGlobal],
+  globals: [
+    Home,
+    FAQText,
+    GuestText,
+    AnnouncementGlobal,
+    MerchGlobal,
+    Application,
+    ADApplication,
+  ],
   collections: [
     Partners,
     Guest,
@@ -43,6 +57,10 @@ export default buildConfig({
     Announcements,
     MerchCategory,
     Merch,
+    ADPartners,
+    ADGuest,
+    ADFAQ,
+    ADAnnouncements,
   ],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || "",

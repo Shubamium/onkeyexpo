@@ -48,7 +48,7 @@
       display: grid;
       grid-template-columns: 1.5fr 1fr;
       background:
-        url("/b/pt-dot.png"), linear-gradient(to bottom, #f9dbbd, #d77189);
+        url("/b/pt-dot.png"), linear-gradient(to bottom, var(--yellow), #d77189);
       background-size: 300px;
       @media screen and (max-width: 550px) {
         max-width: 95%;
@@ -61,7 +61,7 @@
       }
       padding: 2em;
       border-radius: 1.5em;
-      border: 4px solid #450920;
+      border: 4px solid var(--dark);
       gap: 2em;
       // Remove this on mobile
       height: 700px;
@@ -113,14 +113,14 @@
             font-size: 1.5rem;
           }
         }
-        outline: 0px solid #450920;
+        outline: 0px solid var(--dark);
         outline-offset: 30px;
 
         &:hover {
           .banner {
             scale: 1.1;
           }
-          outline: 3px solid #450920;
+          outline: 3px solid var(--dark);
           outline-offset: 0px;
         }
         .category {
@@ -205,11 +205,11 @@
         border-radius: 0.25em 1em;
 
         &:hover {
-          border: 3px solid #450920;
+          border: 3px solid var(--dark);
         }
 
         &.act {
-          border: 3px solid #450920;
+          border: 3px solid var(--dark);
           scale: 1.05;
           color: #ffcf9f;
           background: linear-gradient(
@@ -231,7 +231,7 @@
         margin: 0.25em 0;
       }
       .empty {
-        background: #f9dbbd;
+        background: var(--yellow);
         text-align: center;
         color: #a53961;
         font-size: 1.2rem;
@@ -246,9 +246,10 @@
           display: flex;
           flex-direction: column;
         }
-        border: 3px solid #450920;
+        border: 3px solid var(--dark);
         background:
-          url("/b/pt-dot.png"), linear-gradient(to bottom, #f9dbbd, #d77189);
+          url("/b/pt-dot.png"),
+          linear-gradient(to bottom, var(--yellow), #d77189);
         background-size: 260px;
         padding: 1em;
 
@@ -294,7 +295,7 @@
               transform: translateY(2px);
               color: #d77189;
               @media screen and (max-width: 1024px) {
-                color: #f9dbbd;
+                color: var(--yellow);
                 filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.248));
               }
               svg {
@@ -316,13 +317,17 @@
             display: flex;
             justify-content: flex-end;
             .btn-rm {
-              border: 3px solid #450920;
+              border: 3px solid var(--dark);
               display: flex;
               justify-content: flex-end;
               align-items: center;
               min-width: 100px;
               font-family: var(--fontH);
-              background: linear-gradient(to bottom, #f9dbbd, #ffa5ab);
+              background: linear-gradient(
+                to bottom,
+                var(--yellow),
+                var(--pink)
+              );
               color: #a53860;
               padding: 0.25em 1em;
               border-radius: 0.25em;

@@ -76,6 +76,10 @@ export interface Config {
     announcements: Announcement;
     'merch-category': MerchCategory;
     merch: Merch;
+    'ad-partners': AdPartner;
+    'ad-guest': AdGuest;
+    'ad-faq': AdFaq;
+    'AD-announcements': ADAnnouncement;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -92,6 +96,10 @@ export interface Config {
     announcements: AnnouncementsSelect<false> | AnnouncementsSelect<true>;
     'merch-category': MerchCategorySelect<false> | MerchCategorySelect<true>;
     merch: MerchSelect<false> | MerchSelect<true>;
+    'ad-partners': AdPartnersSelect<false> | AdPartnersSelect<true>;
+    'ad-guest': AdGuestSelect<false> | AdGuestSelect<true>;
+    'ad-faq': AdFaqSelect<false> | AdFaqSelect<true>;
+    'AD-announcements': ADAnnouncementsSelect<false> | ADAnnouncementsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -106,6 +114,8 @@ export interface Config {
     'guest-text': GuestText;
     announcementglobal: Announcementglobal;
     merchglobal: Merchglobal;
+    application: Application;
+    'ad-application': AdApplication;
   };
   globalsSelect: {
     home: HomeSelect<false> | HomeSelect<true>;
@@ -113,6 +123,8 @@ export interface Config {
     'guest-text': GuestTextSelect<false> | GuestTextSelect<true>;
     announcementglobal: AnnouncementglobalSelect<false> | AnnouncementglobalSelect<true>;
     merchglobal: MerchglobalSelect<false> | MerchglobalSelect<true>;
+    application: ApplicationSelect<false> | ApplicationSelect<true>;
+    'ad-application': AdApplicationSelect<false> | AdApplicationSelect<true>;
   };
   locale: null;
   user: User & {
@@ -353,6 +365,92 @@ export interface Merch {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ad-partners".
+ */
+export interface AdPartner {
+  id: string;
+  name: string;
+  link?: string | null;
+  logo: string | Media;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ad-guest".
+ */
+export interface AdGuest {
+  id: string;
+  name?: string | null;
+  image?: (string | null) | Media;
+  link?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ad-faq".
+ */
+export interface AdFaq {
+  id: string;
+  'category-name': string;
+  'question-list'?:
+    | {
+        question: string;
+        answer: {
+          root: {
+            type: string;
+            children: {
+              type: any;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "AD-announcements".
+ */
+export interface ADAnnouncement {
+  id: string;
+  title: string;
+  shortdesc?: string | null;
+  banner?: (string | null) | Media;
+  slug: string;
+  'is-external'?: boolean | null;
+  category?: (string | null) | AnnouncementCategory;
+  date?: string | null;
+  content?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -410,6 +508,22 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'merch';
         value: string | Merch;
+      } | null)
+    | ({
+        relationTo: 'ad-partners';
+        value: string | AdPartner;
+      } | null)
+    | ({
+        relationTo: 'ad-guest';
+        value: string | AdGuest;
+      } | null)
+    | ({
+        relationTo: 'ad-faq';
+        value: string | AdFaq;
+      } | null)
+    | ({
+        relationTo: 'AD-announcements';
+        value: string | ADAnnouncement;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -599,6 +713,60 @@ export interface MerchSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ad-partners_select".
+ */
+export interface AdPartnersSelect<T extends boolean = true> {
+  name?: T;
+  link?: T;
+  logo?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ad-guest_select".
+ */
+export interface AdGuestSelect<T extends boolean = true> {
+  name?: T;
+  image?: T;
+  link?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ad-faq_select".
+ */
+export interface AdFaqSelect<T extends boolean = true> {
+  'category-name'?: T;
+  'question-list'?:
+    | T
+    | {
+        question?: T;
+        answer?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "AD-announcements_select".
+ */
+export interface ADAnnouncementsSelect<T extends boolean = true> {
+  title?: T;
+  shortdesc?: T;
+  banner?: T;
+  slug?: T;
+  'is-external'?: T;
+  category?: T;
+  date?: T;
+  content?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv_select".
  */
 export interface PayloadKvSelect<T extends boolean = true> {
@@ -771,6 +939,34 @@ export interface Merchglobal {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "application".
+ */
+export interface Application {
+  id: string;
+  staff?: string | null;
+  guest?: string | null;
+  panel?: string | null;
+  booth?: string | null;
+  artist?: string | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ad-application".
+ */
+export interface AdApplication {
+  id: string;
+  staff?: string | null;
+  guest?: string | null;
+  panel?: string | null;
+  booth?: string | null;
+  artist?: string | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "home_select".
  */
 export interface HomeSelect<T extends boolean = true> {
@@ -827,6 +1023,34 @@ export interface AnnouncementglobalSelect<T extends boolean = true> {
 export interface MerchglobalSelect<T extends boolean = true> {
   visible?: T;
   text?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "application_select".
+ */
+export interface ApplicationSelect<T extends boolean = true> {
+  staff?: T;
+  guest?: T;
+  panel?: T;
+  booth?: T;
+  artist?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ad-application_select".
+ */
+export interface AdApplicationSelect<T extends boolean = true> {
+  staff?: T;
+  guest?: T;
+  panel?: T;
+  booth?: T;
+  artist?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

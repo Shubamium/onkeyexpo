@@ -46,9 +46,9 @@
     .category {
       .category-selection {
         background: linear-gradient(to right, #d77189, #ffcf9f);
-        border: 3px solid #450920;
+        border: 3px solid var(--dark);
         font-family: var(--fontP);
-        color: #450920;
+        color: var(--dark);
         padding: 0.25em 1em;
         border-radius: 1em;
         font-size: 1.4rem;
@@ -62,7 +62,7 @@
         top: 10px;
         z-index: 10;
         right: 8%;
-        color: #450920;
+        color: var(--dark);
         font-size: 1.4rem;
       }
     }
@@ -82,11 +82,12 @@
     }
     .merch {
       background:
-        url("/b/pt-minidot.png"), linear-gradient(to bottom, #f9dbbd, #d77189);
+        url("/b/pt-minidot.png"),
+        linear-gradient(to bottom, var(--yellow), #d77189);
       background-blend-mode: multiply;
       background-size: 10px;
       border-radius: 1em;
-      border: 2px solid #450920;
+      border: 2px solid var(--dark);
       box-shadow: 0px 6px 0px #a53860;
       padding: 1em;
       position: relative;
@@ -144,10 +145,11 @@
         }
 
         .btn-buy {
-          border: 2px solid #450920;
+          border: 2px solid var(--dark);
           color: #a53860;
           background:
-            url("/b/pt-dot.png"), linear-gradient(to bottom, #f9dbbd, #d77189);
+            url("/b/pt-dot.png"),
+            linear-gradient(to bottom, var(--yellow), #d77189);
           font-family: var(--fontP);
           padding: 0em 1em;
           padding-top: 0.25em;

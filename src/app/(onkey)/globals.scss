@@ -5,8 +5,21 @@
   --pointer: url("/cursor/pointer.png"), pointer;
 }
 
+body {
+  --yellow: #f9dbbd;
+  --pink: #ffa5ab;
+  --dark: #450920;
+}
+body:has(main.afterdark) {
+  background: #fed19712;
+  --yellow: #5c2e76;
+  --pink: #a53860;
+  --dark: #b52a04;
+  --byellow: #f6bd00;
+}
+
 ::selection {
-  background: #45092081;
+  background: var(--dark) 81;
   color: white;
 }
 html,
@@ -21,6 +34,7 @@ body {
 
 body {
   background: #fffafa;
+  transition: all 500ms ease;
   font-family: var(--fontP);
 }
 
@@ -78,9 +92,9 @@ strong {
   filter: brightness(90%);
 }
 .btn-main {
-  border: 4px solid #450920;
+  border: 4px solid var(--dark);
   background:
-    url("/b/pt-dot.png"), linear-gradient(to bottom, #f9dbbd, #ffa5ab);
+    url("/b/pt-dot.png"), linear-gradient(to bottom, var(--yellow), var(--pink));
   background-size: 100px, auto;
   font-size: 1.7rem;
   color: #a53860;
@@ -91,15 +105,15 @@ strong {
   justify-content: center;
   padding-bottom: 0.15em;
   &:hover {
-    box-shadow: 0px 0px 20px #ffa5ab;
+    box-shadow: 0px 0px 20px var(--pink);
   }
   font-weight: bold;
   justify-content: center;
 }
 .btn-nav {
-  background: linear-gradient(to right, #ffffff, #f9dbbd);
-  border: 4px solid #450920;
-  color: #450920;
+  background: linear-gradient(to right, #ffffff, var(--yellow));
+  border: 4px solid var(--dark);
+  color: var(--dark);
   padding: 0.25em 1em;
   border-radius: 50%;
   text-align: center;
@@ -107,14 +121,14 @@ strong {
   align-items: center;
   justify-content: center;
   box-shadow:
-    0px 5px 0px #450920,
+    0px 5px 0px var(--dark),
     2px 5px 0px #d77189;
   &:hover {
-    box-shadow: 0px 7px 0px #450920;
+    box-shadow: 0px 7px 0px var(--dark);
     transform: translateY(-5px);
   }
   &:active {
-    box-shadow: 0px 2px 0px #450920;
+    box-shadow: 0px 2px 0px var(--dark);
     transform: translateY(5px);
   }
 }
@@ -133,5 +147,14 @@ strong {
     }
     padding: 0.75em;
     height: 60px;
+  }
+}
+
+// Onkey After Dark
+
+body:has(main.afterdark) {
+  .btn-nav {
+    background: linear-gradient(-40deg, #ffd498, #ea7c95 70%, #5c2e76);
+    outline: 5px solid var(--byellow);
   }
 }

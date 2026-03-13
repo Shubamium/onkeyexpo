@@ -6,12 +6,14 @@ import { SerializedEditorState } from "@payloadcms/richtext-lexical/lexical";
 import { Media } from "@/payload-types";
 import { CSSProperties } from "react";
 import BunList from "./BunList";
+import AfterDarkSwitch from "./components/adSwitch/AfterDarkSwitch";
+import { ThemedImage } from "../util/ImageSwitcher";
+import { GetTheme } from "../util/Theme";
 
 export default async function Home() {
   const p = await getPayload({
     config: await payloadConfig,
   });
-
   const hd = await p.findGlobal({
     slug: "home",
   });
@@ -22,16 +24,24 @@ export default async function Home() {
   });
 
   const ptl = pt.docs;
-
+  const theme = await GetTheme();
   return (
-    <main id={"p_home"}>
+    <main id={"p_home"} className={theme}>
       <section id="hero">
-        <div className="center">
+        <div
+          className="center"
+          style={
+            {
+              "--center": `url("${ThemedImage("mainbg", theme)}")`,
+            } as CSSProperties
+          }
+        >
           <div className="bcard"></div>
           <div className="bcard b"></div>
           <div className="bcard c"></div>
           <div className="content">
             <BunList />
+            <AfterDarkSwitch initTheme={theme} />
             {hd["main-date"] && <div className="date">{hd["main-date"]}</div>}
             <img src="/p/hero-text2.png" alt="" className="text" />
             <img src="/p/hero-textm.png" alt="" className="text mobile" />
@@ -59,7 +69,11 @@ export default async function Home() {
         <div className="circ r"></div>
         <div className="confine">
           <div className="l">
-            <img src="/g/logo.png" alt="" className="logo" />
+            <img
+              src={ThemedImage("main-logo", theme)}
+              alt=""
+              className="logo"
+            />
             <img src="/b/bg-cebun.png" alt="" className="cebun" />
             <div className="desc">
               <p>

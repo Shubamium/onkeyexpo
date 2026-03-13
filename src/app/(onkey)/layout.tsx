@@ -7,6 +7,7 @@ import { BiHeading } from "react-icons/bi";
 import Header from "./components/hheader/Header";
 import Footer from "./components/footer/Footer";
 import HoppingBunny from "./components/HoppingBunny";
+import { cookies } from "next/headers";
 
 export const revalidate = 5;
 const hossRound = localFont({
@@ -40,7 +41,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -48,7 +49,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={``}
         style={
           {
             "--fontH": hossRound.style.fontFamily,

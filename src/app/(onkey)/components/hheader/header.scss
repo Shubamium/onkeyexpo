@@ -59,6 +59,7 @@
       @media screen and (max-width: 1024px) {
         display: none;
       }
+      // color: #/;
       @keyframes breathe {
         from {
           scale: 1;
@@ -120,6 +121,19 @@
       left: unset;
       right: 0%;
       scale: -1 1;
+    }
+  }
+}
+
+body:has(main.afterdark) #header {
+  .edge {
+    filter: hue-rotate(-80deg) brightness(0.5);
+  }
+  nav {
+    .main-logo {
+      // filter: invert(1);
+      height: 400px;
+      margin-bottom: -40px;
     }
   }
 }

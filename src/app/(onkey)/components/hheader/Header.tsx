@@ -6,6 +6,8 @@ import { FaBluesky, FaThreads, FaXTwitter } from "react-icons/fa6";
 import { BsTiktok } from "react-icons/bs";
 import { getPayload } from "payload";
 import payloadConfig from "@/payload.config";
+import { GetTheme } from "@/app/util/Theme";
+import { ThemedImage } from "@/app/util/ImageSwitcher";
 export default async function Header({}: Props) {
   const payload = await getPayload({
     config: await payloadConfig,
@@ -17,20 +19,21 @@ export default async function Header({}: Props) {
     slug: "announcementglobal",
   });
 
+  const theme = await GetTheme();
   return (
-    <header id="header">
+    <header id="header" data-theme={theme}>
       <img src="/d/header-edge.svg" alt="" className="edge l" />
       <img src="/d/header-edge.svg" alt="" className="edge r" />
       <img src="/g/logo.png" alt="" className="mobilelogo" />
       <nav>
         <div className="infitext">
-          <p>OnKey Expo</p>
-          <p>OnKey Expo</p>
-          <p>OnKey Expo</p>
-          <p>OnKey Expo</p>
-          <p>OnKey Expo</p>
-          <p>OnKey Expo</p>
-          <p>OnKey Expo</p>
+          {new Array(5)
+            .fill(
+              theme === "afterdark" ? " OnKey EXPO AFTER DARK" : " OnKey EXPO",
+            )
+            .map((item, index) => (
+              <p key={index}>{item}</p>
+            ))}
         </div>
         <div className="ctbtn">
           <a href="https://x.com/OnKeyExpo" className="btn btn-nav">
@@ -52,7 +55,11 @@ export default async function Header({}: Props) {
             <BsTiktok />
           </a>
         </div>
-        <img src="/g/logo.png" alt="" className="main-logo" />
+        <img
+          src={ThemedImage("main-logo", theme)}
+          alt=""
+          className="main-logo"
+        />
         <div className="ctbtn">
           <a
             href="https://www.threads.com/@onkeyexpo?hl=en"

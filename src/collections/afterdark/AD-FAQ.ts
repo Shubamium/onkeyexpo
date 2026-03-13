@@ -1,7 +1,10 @@
 import { CollectionConfig } from "payload";
 
-const FAQ: CollectionConfig = {
-  slug: "faq",
+const ADFAQ: CollectionConfig = {
+  slug: "ad-faq",
+  admin: {
+    group: "Afterdark",
+  },
   labels: {
     singular: "FAQ",
     plural: "FAQ",
@@ -31,4 +34,4 @@ const FAQ: CollectionConfig = {
   ],
 };
 
-export default FAQ;
+export default ADFAQ;
