@@ -7,5 +7,5 @@ export async function GET(request: Request) {
   const cookie = await cookies();
   cookie.set("theme", "onkey");
 
-  return NextResponse.redirect(new URL("/", request.url));
+  return NextResponse.redirect(new URL("/", process.env.NEXT_PUBLIC_SITE_URL));
 }
