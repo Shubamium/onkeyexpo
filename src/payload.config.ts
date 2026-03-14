@@ -31,6 +31,7 @@ import ADFAQ from "./collections/afterdark/AD-FAQ";
 import ADAnnouncements from "./collections/afterdark/AD-Announcements";
 import { Application } from "./collections/globals/Application";
 import { ADApplication } from "./collections/globals/afterdark/AD-Application";
+import { ADAnnouncementGlobal } from "./collections/globals/afterdark/Ad-Announcement";
 export default buildConfig({
   admin: {
     user: Users.slug,
@@ -46,6 +47,7 @@ export default buildConfig({
     MerchGlobal,
     Application,
     ADApplication,
+    ADAnnouncementGlobal,
   ],
   collections: [
     Partners,

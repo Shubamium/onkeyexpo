@@ -24,7 +24,11 @@ export default async function Header({}: Props) {
     <header id="header" data-theme={theme}>
       <img src="/d/header-edge.svg" alt="" className="edge l" />
       <img src="/d/header-edge.svg" alt="" className="edge r" />
-      <img src="/g/logo.png" alt="" className="mobilelogo" />
+      <img
+        src={ThemedImage("main-logo", theme)}
+        alt=""
+        className="mobilelogo"
+      />
       <nav>
         <div className="infitext">
           {new Array(5)

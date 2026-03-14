@@ -16,6 +16,7 @@ body:has(main.afterdark) {
   --pink: #a53860;
   --dark: #b52a04;
   --byellow: #f6bd00;
+  --grad: linear-gradient(-40deg, #ffd498, #ea7c95 70%, #5c2e76);
 }
 
 ::selection {
@@ -156,5 +157,8 @@ body:has(main.afterdark) {
   .btn-nav {
     background: linear-gradient(-40deg, #ffd498, #ea7c95 70%, #5c2e76);
     outline: 5px solid var(--byellow);
+  }
+  .premade {
+    filter: brightness(90%) hue-rotate(-30deg);
   }
 }

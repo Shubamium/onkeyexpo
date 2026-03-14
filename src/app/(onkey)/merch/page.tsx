@@ -9,6 +9,7 @@ import { FaFilter } from "react-icons/fa";
 import MerchFilter from "./MerchFilter";
 import { RichText } from "@payloadcms/richtext-lexical/react";
 import { SerializedEditorState } from "@payloadcms/richtext-lexical/lexical";
+import { GetTheme } from "@/app/util/Theme";
 
 type Props = {
   searchParams: Promise<{
@@ -45,8 +46,9 @@ export default async function page({ searchParams }: Props) {
     slug: "merchglobal",
   });
 
+  const theme = await GetTheme();
   return (
-    <main id="p_merch">
+    <main id="p_merch" className={theme}>
       <img src="/d/waveguest.png" alt="" className="wavedec" />
       <div className="confine">
         <div className="merch-h">

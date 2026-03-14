@@ -93,3 +93,12 @@
     }
   }
 }
+
+body:has(main.afterdark) #footer {
+  background:
+    url("/b/pt-dot25.png"),
+    linear-gradient(to bottom, var(--pink), var(--yellow));
+
+  // border-top: 10px solid var(--dark);
+  outline: 3px solid var(--yellow);
+}

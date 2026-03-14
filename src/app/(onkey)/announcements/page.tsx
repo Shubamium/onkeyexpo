@@ -9,7 +9,7 @@ import {
   BiCalendarCheck,
   BiCalendarEvent,
 } from "react-icons/bi";
-import { getPayload, Where } from "payload";
+import { CollectionSlug, getPayload, PaginatedDocs, Where } from "payload";
 import payloadConfig from "@/payload.config";
 import { Announcement, AnnouncementCategory, Media } from "@/payload-types";
 import Link from "next/link";
@@ -17,6 +17,7 @@ import AnnCategorySelector from "./AnnCategorySelector";
 import { equal } from "assert";
 import { RichText } from "@payloadcms/richtext-lexical/react";
 import { SerializedEditorState } from "@payloadcms/richtext-lexical/lexical";
+import { GetTheme } from "@/app/util/Theme";
 
 type Props = {
   searchParams: Promise<{
@@ -40,27 +41,34 @@ export default async function page({ searchParams }: Props) {
       }
     : {};
   console.log(catFilter);
-  const announcements = await payload.find({
-    collection: "announcements",
+
+  const theme = await GetTheme();
+
+  const aslug = theme === "afterdark" ? "AD-announcements" : "announcements";
+  const announcements = (await payload.find({
+    collection: aslug,
     limit: 5,
     where: catFilter,
-  });
+  })) as PaginatedDocs<Announcement>;
   const categories = await payload.find({
     collection: "announcement-category",
   });
+
+  const agSlug =
+    theme === "afterdark" ? "ad-announcementglobal" : "announcementglobal";
   const hl = await payload.findGlobal({
-    slug: "announcementglobal",
+    slug: agSlug,
   });
 
   const hll = hl.hl_l as Announcement;
   const hlr = hl.hl_r as Announcement;
 
   return (
-    <main id="p_announcement">
+    <main id="p_announcement" className={theme}>
       <div className="circ l"></div>
       <div className="circ r"></div>
       <section className="an-title">
-        <img src="/p/anntext.png" alt="" className="pt" />
+        <img src="/p/anntext.png" alt="" className="pt premade" />
         <RichText data={hl.text as SerializedEditorState}></RichText>
       </section>
       <section id="an-hl">

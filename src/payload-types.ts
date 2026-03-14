@@ -116,6 +116,7 @@ export interface Config {
     merchglobal: Merchglobal;
     application: Application;
     'ad-application': AdApplication;
+    'ad-announcementglobal': AdAnnouncementglobal;
   };
   globalsSelect: {
     home: HomeSelect<false> | HomeSelect<true>;
@@ -125,6 +126,7 @@ export interface Config {
     merchglobal: MerchglobalSelect<false> | MerchglobalSelect<true>;
     application: ApplicationSelect<false> | ApplicationSelect<true>;
     'ad-application': AdApplicationSelect<false> | AdApplicationSelect<true>;
+    'ad-announcementglobal': AdAnnouncementglobalSelect<false> | AdAnnouncementglobalSelect<true>;
   };
   locale: null;
   user: User & {
@@ -967,6 +969,33 @@ export interface AdApplication {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ad-announcementglobal".
+ */
+export interface AdAnnouncementglobal {
+  id: string;
+  visible?: boolean | null;
+  text?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  hl_l?: (string | null) | Announcement;
+  hl_r?: (string | null) | Announcement;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "home_select".
  */
 export interface HomeSelect<T extends boolean = true> {
@@ -1051,6 +1080,19 @@ export interface AdApplicationSelect<T extends boolean = true> {
   panel?: T;
   booth?: T;
   artist?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ad-announcementglobal_select".
+ */
+export interface AdAnnouncementglobalSelect<T extends boolean = true> {
+  visible?: T;
+  text?: T;
+  hl_l?: T;
+  hl_r?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

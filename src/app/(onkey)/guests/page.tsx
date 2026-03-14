@@ -3,10 +3,11 @@ import React, { CSSProperties } from "react";
 type Props = {};
 import "./guests.scss";
 import payloadConfig from "@/payload.config";
-import { getPayload } from "payload";
+import { getPayload, PaginatedDocs } from "payload";
 import { RichText } from "@payloadcms/richtext-lexical/react";
 import { SerializedEditorState } from "@payloadcms/richtext-lexical/lexical";
 import { Guest, Media } from "@/payload-types";
+import { GetTheme } from "@/app/util/Theme";
 function splitIntoThree(arr: Guest[]) {
   const size = Math.ceil(arr.length / 3);
   const first = arr.slice(0, size);
@@ -18,17 +19,21 @@ export default async function page({}: Props) {
   const p = await getPayload({
     config: await payloadConfig,
   });
+
+  const theme = await GetTheme();
+  const gSlug = theme === "afterdark" ? "ad-guest" : "guest";
+
   const gt = await p.findGlobal({
     slug: "guest-text",
   });
-  const gl = await p.find({
-    collection: "guest",
+  const gl = (await p.find({
+    collection: gSlug,
     limit: 0,
-  });
+  })) as PaginatedDocs<Guest>;
 
   const toRender = splitIntoThree(gl.docs);
   return (
-    <main id="p_guests">
+    <main id="p_guests" className={theme}>
       <section id="guest">
         <img src="/d/waveguest.png" alt="" className="wavedec" />
         <div className="circ-l"></div>

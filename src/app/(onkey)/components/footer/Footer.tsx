@@ -7,6 +7,8 @@ import { FaDiscord, FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
 import "./footer.scss";
 import { getPayload } from "payload";
 import payloadConfig from "@/payload.config";
+import { GetTheme } from "@/app/util/Theme";
+import { ThemedImage } from "@/app/util/ImageSwitcher";
 export default async function Footer({}: Props) {
   const p = await getPayload({
     config: await payloadConfig,
@@ -15,13 +17,14 @@ export default async function Footer({}: Props) {
   const hd = await p.findGlobal({
     slug: "home",
   });
+  const theme = await GetTheme();
   return (
-    <footer id="footer">
-      <img src="/b/footer-wave-top.png" alt="" className="wavetop" />
-      <img src="/d/footer-side.png" alt="" className="side " />
-      <img src="/d/footer-side.png" alt="" className="side r" />
+    <footer id="footer" className={theme}>
+      <img src="/b/footer-wave-top.png" alt="" className="wavetop premade" />
+      <img src="/d/footer-side.png" alt="" className="side  premade" />
+      <img src="/d/footer-side.png" alt="" className="side r premade" />
       <div className="logoc">
-        <img src="/g/logo.png" alt="" />
+        <img src={ThemedImage("main-logo", theme)} alt="" />
       </div>
       <p className="footerde">
         {/* (Placeholder)OnKey Expo is a VTuber-centered convention focused on

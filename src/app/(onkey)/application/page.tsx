@@ -9,62 +9,62 @@ import { BsShop } from "react-icons/bs";
 import { CiShop } from "react-icons/ci";
 import { GiTalk } from "react-icons/gi";
 import { BiMicrophone } from "react-icons/bi";
-export default function page({}: Props) {
+import { DataFromGlobalSlug, getPayload, GlobalSlug } from "payload";
+import payloadConfig from "@/payload.config";
+import { GetTheme } from "@/app/util/Theme";
+import { Application } from "@/payload-types";
+export default async function page({}: Props) {
+  const p = await getPayload({
+    config: await payloadConfig,
+  });
+
+  const theme = await GetTheme();
+  // if(theme === "afterdark") ad =
+  let slug = theme === "afterdark" ? "ad-application" : "application";
+  let ad = (await p.findGlobal({
+    slug: slug as GlobalSlug,
+  })) as Application;
+
   return (
-    <main id="p_ap">
-      <img src="/p/apstroke.png" alt="" className="apstroke" />
+    <main id="p_ap" className={theme}>
+      <img src="/p/apstroke.png" alt="" className="apstroke premade" />
       <div className="circ l"></div>
       <div className="circ r"></div>
-      <div className="title">
+      <div className="title premade">
         <img src="/p/ap-text.png" alt="" />
       </div>
 
       <div className="ap-list">
-        <Link
-          href={"https://forms.gle/RHCRwtoKnEjzZL1B9"}
-          className="ap btn btn-main"
-        >
+        <a href={ad.staff ?? undefined} className="ap btn btn-main">
           <img src="/g/b1.png" alt="" className="db" />
           <img src="/d/apheart.png" alt="" className="h" />
           <FaPeopleCarryBox className="icon" />
           <span>STAFF</span>
-        </Link>
-        <Link
-          href={"https://forms.gle/6mrsHjUanPTUANXA8"}
-          className="ap btn btn-main"
-        >
+        </a>
+        <a href={ad.guest ?? undefined} className="ap btn btn-main">
           <img src="/g/b1.png" alt="" className="db" />
           <img src="/d/apheart.png" alt="" className="h" />
           <FaPeopleGroup className="icon" />
           <span>GUEST</span>
-        </Link>
-        <Link
-          href={"https://forms.gle/DNEKMZEvfm8HiCLX6"}
-          className="ap btn btn-main"
-        >
+        </a>
+        <a href={ad.panel ?? undefined} className="ap btn btn-main">
           <img src="/g/b1.png" alt="" className="db" />
           <img src="/d/apheart.png" alt="" className="h" />
           <FaMicrophone className="icon" />
           <span>PANEL</span>
-        </Link>
-        <Link
-          href={"https://forms.gle/nDeKiZVbF9s3xYqH9"}
-          className="ap btn btn-main"
-        >
+        </a>
+        <a href={ad.booth ?? undefined} className="ap btn btn-main">
           <img src="/g/b1.png" alt="" className="db" />
           <img src="/d/apheart.png" alt="" className="h" />
           <CiShop className="icon" />
           <span>BOOTH/VENDOR</span>
-        </Link>
-        <Link
-          href={"https://forms.gle/VANfDPttqCqTVd9s7"}
-          className="ap btn btn-main"
-        >
+        </a>
+        <a href={ad.artist ?? undefined} className="ap btn btn-main">
           <img src="/g/b1.png" alt="" className="db" />
           <img src="/d/apheart.png" alt="" className="h" />
           <FaPaintBrush className="icon" />
           <span>ARTIST ALLEY</span>
-        </Link>
+        </a>
       </div>
     </main>
   );

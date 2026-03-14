@@ -238,3 +238,45 @@ body:has(#p_faq) {
     margin-top: 0;
   }
 }
+body:has(main.afterdark) {
+  #p_faq #faq .fh .desc {
+    color: var(--byellow);
+    text-shadow: 0px 0px 4px black;
+    a {
+      color: var(--dark);
+    }
+  }
+  #p_faq #faq::before {
+    background:
+      url("/afterdark/b/mainbg.webp"),
+      linear-gradient(to bottom, var(--yellow), var(--pink) 40%, #ffd398);
+    background-blend-mode: multiply;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+  #p_faq #faq .faq-cat .btn-fq {
+    background: var(--grad);
+    color: var(--dark);
+    outline: 3px solid var(--byellow);
+  }
+
+  #p_faq #faq .fl .question .q {
+    color: var(--byellow);
+  }
+  #p_faq #faq .fl .question {
+    background: #5c2e76;
+    outline: 4px solid var(--byellow);
+    .a {
+      background: url("/b/pt-dot25.png"), #22112d;
+    }
+  }
+  #p_faq #faq .fl .question:nth-child(2n + 1) {
+    background: var(--pink);
+    .q p {
+      color: var(--byellow);
+    }
+    .a {
+      background: url("/b/pt-dot25.png"), #41141e;
+    }
+  }
+}

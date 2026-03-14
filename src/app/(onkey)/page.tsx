@@ -1,9 +1,9 @@
-import { getPayload } from "payload";
+import { CollectionSlug, getPayload, PaginatedDocs } from "payload";
 import "./home.scss";
 import payloadConfig from "@/payload.config";
 import { RichText } from "@payloadcms/richtext-lexical/react";
 import { SerializedEditorState } from "@payloadcms/richtext-lexical/lexical";
-import { Media } from "@/payload-types";
+import { Media, Partner } from "@/payload-types";
 import { CSSProperties } from "react";
 import BunList from "./BunList";
 import AfterDarkSwitch from "./components/adSwitch/AfterDarkSwitch";
@@ -18,13 +18,14 @@ export default async function Home() {
     slug: "home",
   });
 
-  const pt = await p.find({
-    collection: "partners",
+  const theme = await GetTheme();
+  const ptSlug = theme === "afterdark" ? "ad-partners" : "partners";
+  const pt = (await p.find({
+    collection: ptSlug as CollectionSlug,
     limit: 0,
-  });
+  })) as PaginatedDocs<Partner>;
 
   const ptl = pt.docs;
-  const theme = await GetTheme();
   return (
     <main id={"p_home"} className={theme}>
       <section id="hero">
@@ -41,7 +42,7 @@ export default async function Home() {
           <div className="bcard c"></div>
           <div className="content">
             <BunList />
-            <AfterDarkSwitch initTheme={theme} />
+            {/* <AfterDarkSwitch initTheme={theme} /> */}
             {hd["main-date"] && <div className="date">{hd["main-date"]}</div>}
             <img src="/p/hero-text2.png" alt="" className="text" />
             <img src="/p/hero-textm.png" alt="" className="text mobile" />
@@ -137,7 +138,7 @@ export default async function Home() {
       <section id="team">
         <div className="confine">
           <div className="l">
-            <img src="/p/teamtext2.png" alt="" className="title" />
+            <img src="/p/teamtext2.png" alt="" className="title premade" />
             <img src="/b/bg-cebun.png" alt="" className="cebun" />
             <p>{hd.team}</p>
           </div>
@@ -150,8 +151,12 @@ export default async function Home() {
 
       <section id="partner">
         <div className="title">
-          <img src="/p/partner-text2.png" alt="" className="img" />
-          <img src="/p/partner-textm.png" alt="" className="img mobile" />
+          <img src="/p/partner-text2.png" alt="" className="img premade" />
+          <img
+            src="/p/partner-textm.png"
+            alt=""
+            className="img mobile premade"
+          />
         </div>
         <div className="scroller">
           <div

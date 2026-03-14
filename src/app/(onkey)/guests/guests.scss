@@ -173,3 +173,11 @@
     }
   }
 }
+
+body:has(main.afterdark) {
+  #p_guests #guest .circ-l {
+    background:
+      url("/b/pt-minidot.png"),
+      linear-gradient(to bottom, var(--yellow), var(--pink));
+  }
+}
