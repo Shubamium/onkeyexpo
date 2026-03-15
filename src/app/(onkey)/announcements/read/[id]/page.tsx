@@ -1,13 +1,13 @@
 import Link from "next/link";
 import React from "react";
 import { FaArrowLeftLong, FaCalendar } from "react-icons/fa6";
-
 import "./read.scss";
 import payloadConfig from "@/payload.config";
 import { getPayload, Where } from "payload";
 import { AnnouncementCategory, Media } from "@/payload-types";
 import { RichText } from "@payloadcms/richtext-lexical/react";
 import { SerializedEditorState } from "@payloadcms/richtext-lexical/lexical";
+import { GetTheme } from "@/app/util/Theme";
 
 type Props = {
   params: Promise<{
@@ -32,9 +32,10 @@ export default async function AnnReadPage({ params }: Props) {
   });
   if (announcement.docs.length === 0) return <div>404 Not Found</div>;
 
+  const theme = await GetTheme();
   const nd = announcement.docs[0];
   return (
-    <main id="p_read">
+    <main id="p_read" className={theme}>
       <div className="circ l"></div>
       <div className="circ r"></div>
       <div className="confine">

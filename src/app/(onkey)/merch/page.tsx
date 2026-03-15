@@ -10,6 +10,7 @@ import MerchFilter from "./MerchFilter";
 import { RichText } from "@payloadcms/richtext-lexical/react";
 import { SerializedEditorState } from "@payloadcms/richtext-lexical/lexical";
 import { GetTheme } from "@/app/util/Theme";
+import { split } from "sentence-splitter";
 
 type Props = {
   searchParams: Promise<{
@@ -17,6 +18,19 @@ type Props = {
   }>;
 };
 
+function splitSentences(text: string, count: number) {
+  const sentences = split(text)
+    .filter((node) => node.type === "Sentence")
+    .map((s) => s.raw);
+
+  const pList = [];
+  for (let i = 0; i < sentences.length; i += count) {
+    const cut = sentences.slice(i, i + count);
+    pList.push(cut.join());
+  }
+
+  return pList;
+}
 export default async function page({ searchParams }: Props) {
   const params = await searchParams;
   const cat = params?.c;
@@ -80,7 +94,12 @@ export default async function page({ searchParams }: Props) {
 
                   <div className="info">
                     <h2>{m.title}</h2>
-                    <p>{m.shortdesc}</p>
+                    {/* <p></p> */}
+                    <div className="desc">
+                      {splitSentences(m.shortdesc ?? "", 2).map((p, i) => {
+                        return <p key={p + i}> {p}</p>;
+                      })}
+                    </div>
                   </div>
                 </div>
 

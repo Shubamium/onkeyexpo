@@ -44,9 +44,9 @@ export default async function page({ searchParams }: Props) {
 
   const theme = await GetTheme();
 
-  const aslug = theme === "afterdark" ? "AD-announcements" : "announcements";
+  // const aslug = theme === "afterdark" ? "AD-announcements" : "announcements";
   const announcements = (await payload.find({
-    collection: aslug,
+    collection: "announcements",
     limit: 5,
     where: catFilter,
   })) as PaginatedDocs<Announcement>;

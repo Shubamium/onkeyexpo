@@ -101,4 +101,8 @@ body:has(main.afterdark) #footer {
 
   // border-top: 10px solid var(--dark);
   outline: 3px solid var(--yellow);
+
+  .logoc {
+    background: linear-gradient(to bottom, #ffcf9f, #d771897a);
+  }
 }
