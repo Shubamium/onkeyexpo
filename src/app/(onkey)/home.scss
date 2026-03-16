@@ -652,3 +652,102 @@ body:has(main.afterdark) {
     }
   }
 }
+
+.age-modal {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.826);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0%;
+  left: 0%;
+  z-index: 100;
+  backdrop-filter: blur(2px);
+
+  transition: all 500ms ease;
+  &.act {
+    opacity: 1;
+    user-select: initial;
+    pointer-events: initial;
+    .panel {
+      transform: translateY(0px);
+      scale: 1;
+    }
+  }
+
+  &.closed {
+    opacity: 0;
+    user-select: none;
+    pointer-events: none;
+    .panel {
+      transform: translateY(-400px);
+      scale: 0;
+    }
+  }
+  .panel {
+    background:
+      url("/b/pt-minidot.png"), linear-gradient(to bottom, #fdb4b0, #fed297 60%);
+    background-size: 10px;
+    background-blend-mode: multiply;
+    border: 3px solid #fed297;
+    border-radius: 1em;
+    padding: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 500ms ease;
+    flex-direction: column;
+    box-shadow: 0px 0px 4px black;
+    max-width: 90%;
+    rotate: -1deg;
+    svg {
+      width: 150px;
+      height: 150px;
+      color: #5c2e76;
+    }
+    h2 {
+      color: #a53860;
+      font-size: 2rem;
+      text-align: center;
+    }
+    p {
+      color: #a53860;
+      text-align: center;
+      font-size: 1.2rem;
+      max-width: min(80%, 500px);
+      margin-top: 0.2em;
+    }
+    .textpart {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      filter: drop-shadow(0px 1px 0px rgba(0, 0, 0, 0.132));
+      width: 100%;
+    }
+    .action {
+      display: flex;
+      justify-content: center;
+      gap: 2em;
+      margin: 1em 0;
+      .can {
+        background: linear-gradient(to bottom, #5c2e76, #b81216);
+        color: white;
+      }
+
+      @media screen and (max-width: 550px) {
+        gap: 0.5em;
+      }
+      .btn-main {
+        @media screen and (max-width: 550px) {
+          font-size: 1.2rem;
+        }
+        @media screen and (max-width: 420px) {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}
