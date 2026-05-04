@@ -55,7 +55,10 @@ export default async function Home() {
               for the community */}
               {hd["hero-description"]}
             </p>
-            <a href="#about" className="btn btn-main">
+            <a
+              href="https://www.eventeny.com/events/ticket/?id=23984"
+              className="btn btn-main"
+            >
               {" "}
               {/* Call to Action ! */}
               {hd["call-to-action"]}
