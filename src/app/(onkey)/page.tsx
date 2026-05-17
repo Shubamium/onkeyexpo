@@ -104,10 +104,14 @@ export default async function Home() {
           </div>
 
           <div className="gl">
-            {hd.featuredGuest?.map((fg) => {
+            {hd.featuredGuest?.map((fg, i) => {
               const value = fg.value as Guest;
               return (
-                <a href={value.link ?? undefined} className="btn guest">
+                <a
+                  href={value.link ?? undefined}
+                  className="btn guest"
+                  key={"featured-guest" + i}
+                >
                   <img src={(value.image as Media)?.url ?? undefined} alt="" />
                 </a>
               );
