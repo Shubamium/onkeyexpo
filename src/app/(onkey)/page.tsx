@@ -3,7 +3,7 @@ import "./home.scss";
 import payloadConfig from "@/payload.config";
 import { RichText } from "@payloadcms/richtext-lexical/react";
 import { SerializedEditorState } from "@payloadcms/richtext-lexical/lexical";
-import { Media, Partner } from "@/payload-types";
+import { AdGuest, Guest, Media, Partner } from "@/payload-types";
 import { CSSProperties } from "react";
 import BunList from "./BunList";
 import AfterDarkSwitch from "./components/adSwitch/AfterDarkSwitch";
@@ -71,7 +71,7 @@ export default async function Home() {
         <div className="bunny" />
         <div className="circ l"></div>
         <div className="circ r"></div>
-        <div className="confine">
+        {/* <div className="confine bio-about">
           <div className="l">
             <img
               src={ThemedImage("main-logo", theme)}
@@ -95,6 +95,35 @@ export default async function Home() {
           </div>
           <div className="r">
             <img src="/g/chibi.webp" alt="" />
+          </div>
+        </div> */}
+        <div className="confine featured-guest">
+          <div className="title">
+            <img src="/p/featuredguest.png" alt="" className="heading" />
+            <p className="blurb">{hd.featuredGuestText}</p>
+          </div>
+
+          <div className="gl">
+            {hd.featuredGuest?.map((fg) => {
+              const value = fg.value as Guest;
+              return (
+                <a href={value.link ?? undefined} className="btn guest">
+                  <img src={(value.image as Media)?.url ?? undefined} alt="" />
+                </a>
+              );
+            })}
+            {/* <a href="#" className="btn guest">
+              <img src="/g/sample-guest.png" alt="" />
+            </a>
+            <a href="#" className="btn guest">
+              <img src="/g/sample-guest.png" alt="" />
+            </a>
+            <a href="#" className="btn guest">
+              <img src="/g/sample-guest.png" alt="" />
+            </a>
+            <a href="#" className="btn guest">
+              <img src="/g/sample-guest.png" alt="" />
+            </a> */}
           </div>
         </div>
       </section>

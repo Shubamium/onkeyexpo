@@ -21,6 +21,19 @@ export const Home: GlobalConfig = {
       type: "text",
     },
     {
+      name: "featuredGuestText",
+      label: "Featured Guest Text",
+      type: "text",
+    },
+    {
+      name: "featuredGuest",
+      label: "Featured Guest List",
+      type: "relationship",
+      relationTo: ["guest", "ad-guest"],
+      hasMany: true,
+      admin: { appearance: "drawer" },
+    },
+    {
       name: "map",
       label: "Google Map Embed (Src Link)",
       type: "text",

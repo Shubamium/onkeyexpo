@@ -817,6 +817,19 @@ export interface Home {
   'hero-description'?: string | null;
   'call-to-action'?: string | null;
   trailer?: string | null;
+  featuredGuestText?: string | null;
+  featuredGuest?:
+    | (
+        | {
+            relationTo: 'guest';
+            value: string | Guest;
+          }
+        | {
+            relationTo: 'ad-guest';
+            value: string | AdGuest;
+          }
+      )[]
+    | null;
   map?: string | null;
   dates?: {
     root: {
@@ -1003,6 +1016,8 @@ export interface HomeSelect<T extends boolean = true> {
   'hero-description'?: T;
   'call-to-action'?: T;
   trailer?: T;
+  featuredGuestText?: T;
+  featuredGuest?: T;
   map?: T;
   dates?: T;
   address?: T;
