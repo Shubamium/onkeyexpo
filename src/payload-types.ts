@@ -195,6 +195,7 @@ export interface Guest {
   name?: string | null;
   image?: (string | null) | Media;
   link?: string | null;
+  bio?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -386,6 +387,7 @@ export interface AdGuest {
   name?: string | null;
   image?: (string | null) | Media;
   link?: string | null;
+  bio?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -588,6 +590,7 @@ export interface GuestSelect<T extends boolean = true> {
   name?: T;
   image?: T;
   link?: T;
+  bio?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -732,6 +735,7 @@ export interface AdGuestSelect<T extends boolean = true> {
   name?: T;
   image?: T;
   link?: T;
+  bio?: T;
   updatedAt?: T;
   createdAt?: T;
 }

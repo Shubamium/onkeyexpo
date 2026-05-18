@@ -6,9 +6,10 @@ export const ADGuest: CollectionConfig = {
     useAsTitle: "name",
     group: "Afterdark",
   },
+
   labels: {
-    singular: "Guest",
-    plural: "Guests",
+    singular: "Afterdark Guest",
+    plural: "Afterdark Guests",
   },
   fields: [
     {
@@ -22,6 +23,10 @@ export const ADGuest: CollectionConfig = {
     },
     {
       name: "link",
+      type: "text",
+    },
+    {
+      name: "bio",
       type: "text",
     },
   ],

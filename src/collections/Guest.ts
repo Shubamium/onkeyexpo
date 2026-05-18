@@ -19,5 +19,9 @@ export const Guest: CollectionConfig = {
       name: "link",
       type: "text",
     },
+    {
+      name: "bio",
+      type: "text",
+    },
   ],
 };

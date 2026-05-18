@@ -117,6 +117,9 @@ export default async function Home() {
                       src={(value.image as Media)?.url ?? undefined}
                       alt=""
                     />
+                    <div className="desc">
+                      <p>{value.bio}</p>
+                    </div>
                   </a>
                 );
               })}
