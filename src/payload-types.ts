@@ -817,6 +817,7 @@ export interface Home {
   'hero-description'?: string | null;
   'call-to-action'?: string | null;
   trailer?: string | null;
+  featuredGuestVisible?: boolean | null;
   featuredGuestText?: string | null;
   featuredGuest?:
     | (
@@ -1016,6 +1017,7 @@ export interface HomeSelect<T extends boolean = true> {
   'hero-description'?: T;
   'call-to-action'?: T;
   trailer?: T;
+  featuredGuestVisible?: T;
   featuredGuestText?: T;
   featuredGuest?: T;
   map?: T;

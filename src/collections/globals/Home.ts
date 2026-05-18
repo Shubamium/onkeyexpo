@@ -21,6 +21,11 @@ export const Home: GlobalConfig = {
       type: "text",
     },
     {
+      name: "featuredGuestVisible",
+      label: "Show Featured Guest",
+      type: "checkbox",
+    },
+    {
       name: "featuredGuestText",
       label: "Featured Guest Text",
       type: "text",

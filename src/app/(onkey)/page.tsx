@@ -97,40 +97,34 @@ export default async function Home() {
             <img src="/g/chibi.webp" alt="" />
           </div>
         </div> */}
-        <div className="confine featured-guest">
-          <div className="title">
-            <img src="/p/featuredguest.png" alt="" className="heading" />
-            <p className="blurb">{hd.featuredGuestText}</p>
-          </div>
+        {hd.featuredGuestVisible && (
+          <div className="confine featured-guest">
+            <div className="title">
+              <img src="/p/featuredguest.png" alt="" className="heading" />
+              <p className="blurb">{hd.featuredGuestText}</p>
+            </div>
 
-          <div className="gl">
-            {hd.featuredGuest?.map((fg, i) => {
-              const value = fg.value as Guest;
-              return (
-                <a
-                  href={value.link ?? undefined}
-                  className="btn guest"
-                  key={"featured-guest" + i}
-                >
-                  <img src={(value.image as Media)?.url ?? undefined} alt="" />
-                </a>
-              );
-            })}
-            {/* <a href="#" className="btn guest">
-              <img src="/g/sample-guest.png" alt="" />
-            </a>
-            <a href="#" className="btn guest">
-              <img src="/g/sample-guest.png" alt="" />
-            </a>
-            <a href="#" className="btn guest">
-              <img src="/g/sample-guest.png" alt="" />
-            </a>
-            <a href="#" className="btn guest">
-              <img src="/g/sample-guest.png" alt="" />
-            </a> */}
+            <div className="gl">
+              {hd.featuredGuest?.map((fg, i) => {
+                const value = fg.value as Guest;
+                return (
+                  <a
+                    href={value.link ?? undefined}
+                    className="btn guest"
+                    key={"featured-guest" + i}
+                  >
+                    <img
+                      src={(value.image as Media)?.url ?? undefined}
+                      alt=""
+                    />
+                  </a>
+                );
+              })}
+            </div>
           </div>
-        </div>
+        )}
       </section>
+
       <section id="trailer-location">
         <div className="confine">
           <img src="/p/ableft.png" alt="" className="left" />
