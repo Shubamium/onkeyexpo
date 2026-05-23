@@ -712,6 +712,9 @@ body:has(main.afterdark) {
         text-shadow: 0px 0px 4px black;
       }
     }
+    #about .heading {
+      filter: hue-rotate(-80deg) brightness(0.8);
+    }
     #about .l .desc p {
       color: #b81216;
     }

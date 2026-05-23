@@ -26,6 +26,7 @@ export default async function Home() {
   })) as PaginatedDocs<Partner>;
 
   const ptl = pt.docs;
+  const fglist = theme === "afterdark" ? hd.featuredGuestAd : hd.featuredGuest;
   return (
     <main id={"p_home"} className={theme}>
       <section id="hero">
@@ -105,8 +106,8 @@ export default async function Home() {
             </div>
 
             <div className="gl">
-              {hd.featuredGuest?.map((fg, i) => {
-                const value = fg.value as Guest;
+              {fglist?.map((fg: any, i: number) => {
+                const value = fg as Guest;
                 return (
                   <a
                     href={value.link ?? undefined}
