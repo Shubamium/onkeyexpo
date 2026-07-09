@@ -95,6 +95,9 @@ export default async function Header({}: Props) {
         <Link className="btn btn-nav" href="/guests">
           Guests
         </Link>
+        <Link className="btn btn-nav" href="/venue">
+          Venue
+        </Link>
         <Link className="btn btn-nav" href="/faq">
           FAQ
         </Link>

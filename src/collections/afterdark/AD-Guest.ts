@@ -26,6 +26,11 @@ export const ADGuest: CollectionConfig = {
       type: "text",
     },
     {
+      name: "hide",
+      type: "checkbox",
+      defaultValue: false,
+    },
+    {
       name: "bio",
       type: "text",
     },

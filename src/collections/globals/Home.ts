@@ -63,8 +63,21 @@ export const Home: GlobalConfig = {
     },
     {
       name: "team",
-      label: "Meet the Team Description",
+      label: "Meet the Team - Description",
       type: "textarea",
+    },
+    {
+      name: "team-list",
+      label: "Meet the Team - List",
+      type: "array",
+      fields: [
+        {
+          name: "image",
+          type: "upload",
+          relationTo: "media",
+          required: true,
+        },
+      ],
     },
     {
       name: "footer-description",

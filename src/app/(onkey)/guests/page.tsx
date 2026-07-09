@@ -29,13 +29,18 @@ export default async function page({}: Props) {
   const gl = (await p.find({
     collection: gSlug,
     limit: 0,
+    where: {
+      hide: {
+        not_equals: true,
+      },
+    },
   })) as PaginatedDocs<Guest>;
 
   const toRender = splitIntoThree(gl.docs);
   return (
     <main id="p_guests" className={theme}>
       <section id="guest">
-        <img src="/d/waveguest.png" alt="" className="wavedec" />
+        <img src="/d/waveguest.png" alt="" className="wavedec" />k
         <div className="circ-l"></div>
         <div className="confine">
           <div className="l">

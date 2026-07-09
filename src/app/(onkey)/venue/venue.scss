@@ -1,0 +1,47 @@
+#p_venue {
+  .b {
+    position: absolute;
+  }
+  iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 1em;
+    border: 5px solid #d77189;
+    outline: 6px solid var(--dark);
+    margin-bottom: 1.2em;
+  }
+
+  .map {
+    max-width: min(1400px, 90%);
+    margin: 100px auto;
+  }
+  z-index: 10;
+  position: relative;
+  .b {
+    right: -80px;
+    top: -80px;
+    position: absolute;
+    object-fit: contain;
+    width: 180px;
+    height: 180px;
+    scale: -1 1;
+  }
+  .date {
+    color: #a53860;
+    font-size: 2.4rem;
+    text-align: center;
+  }
+  .addr {
+    color: var(--dark);
+    text-align: center;
+    font-size: 1.5rem;
+  }
+  @media screen and (max-width: 500px) {
+    .date {
+      font-size: 1.5rem;
+    }
+    .addr {
+      font-size: 1.1rem;
+    }
+  }
+}

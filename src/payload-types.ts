@@ -195,6 +195,7 @@ export interface Guest {
   name?: string | null;
   image?: (string | null) | Media;
   link?: string | null;
+  hide?: boolean | null;
   bio?: string | null;
   updatedAt: string;
   createdAt: string;
@@ -387,6 +388,7 @@ export interface AdGuest {
   name?: string | null;
   image?: (string | null) | Media;
   link?: string | null;
+  hide?: boolean | null;
   bio?: string | null;
   updatedAt: string;
   createdAt: string;
@@ -590,6 +592,7 @@ export interface GuestSelect<T extends boolean = true> {
   name?: T;
   image?: T;
   link?: T;
+  hide?: T;
   bio?: T;
   updatedAt?: T;
   createdAt?: T;
@@ -735,6 +738,7 @@ export interface AdGuestSelect<T extends boolean = true> {
   name?: T;
   image?: T;
   link?: T;
+  hide?: T;
   bio?: T;
   updatedAt?: T;
   createdAt?: T;
@@ -843,6 +847,12 @@ export interface Home {
   } | null;
   address?: string | null;
   team?: string | null;
+  'team-list'?:
+    | {
+        image: string | Media;
+        id?: string | null;
+      }[]
+    | null;
   'footer-description'?: string | null;
   updatedAt?: string | null;
   createdAt?: string | null;
@@ -1019,6 +1029,12 @@ export interface HomeSelect<T extends boolean = true> {
   dates?: T;
   address?: T;
   team?: T;
+  'team-list'?:
+    | T
+    | {
+        image?: T;
+        id?: T;
+      };
   'footer-description'?: T;
   updatedAt?: T;
   createdAt?: T;
