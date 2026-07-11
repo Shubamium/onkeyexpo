@@ -182,7 +182,7 @@ export default async function Home() {
             {hd["team-list"]?.map((img, i: number) => {
               let srcimg = img.image as Media;
               return (
-                <div className="card">
+                <div className="card" key={img.id}>
                   <img src={srcimg?.url ?? undefined} alt="" className="b" />
                 </div>
               );
