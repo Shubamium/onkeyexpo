@@ -16,6 +16,20 @@ export const Home: GlobalConfig = {
       type: "text",
     },
     {
+      name: "call-to-action-secondary",
+      type: "group",
+      fields: [
+        {
+          name: "text",
+          type: "text",
+        },
+        {
+          name: "url",
+          type: "text",
+        },
+      ],
+    },
+    {
       name: "trailer",
       label: "Trailer (Youtube Video ID)",
       type: "text",

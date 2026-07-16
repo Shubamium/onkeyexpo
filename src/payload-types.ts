@@ -824,6 +824,10 @@ export interface Home {
   'main-date'?: string | null;
   'hero-description'?: string | null;
   'call-to-action'?: string | null;
+  'call-to-action-secondary'?: {
+    text?: string | null;
+    url?: string | null;
+  };
   trailer?: string | null;
   featuredGuestVisible?: boolean | null;
   featuredGuestText?: string | null;
@@ -1020,6 +1024,12 @@ export interface HomeSelect<T extends boolean = true> {
   'main-date'?: T;
   'hero-description'?: T;
   'call-to-action'?: T;
+  'call-to-action-secondary'?:
+    | T
+    | {
+        text?: T;
+        url?: T;
+      };
   trailer?: T;
   featuredGuestVisible?: T;
   featuredGuestText?: T;

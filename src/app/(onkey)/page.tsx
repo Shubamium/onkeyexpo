@@ -64,6 +64,16 @@ export default async function Home() {
               {/* Call to Action ! */}
               {hd["call-to-action"]}
             </a>
+            {hd["call-to-action-secondary"] && (
+              <a
+                href={hd["call-to-action-secondary"]?.url ?? undefined}
+                className="btn btn-main"
+              >
+                {" "}
+                {/* Call to Action ! */}
+                {hd["call-to-action-secondary"]?.text}
+              </a>
+            )}
           </div>
         </div>
       </section>
